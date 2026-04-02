@@ -1217,6 +1217,18 @@ function nextLessonStage(lid) {
   window.scrollTo(0, 0);
 }
 
+function bindMobileProgressRedirect() {
+  const el = document.getElementById('mobileProgressPct');
+  if (!el) return;
+
+  const navigateToCatalog = () => go('catalog');
+  el.addEventListener('click', navigateToCatalog);
+  el.addEventListener('touchend', (event) => {
+    event.preventDefault();
+    navigateToCatalog();
+  }, { passive: false });
+}
+
 function go(id) {
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   const nb = document.getElementById('nb-'+id);
@@ -2087,6 +2099,7 @@ syncMobileMenuState();
 updateNotesFabVisibility();
 document.body.classList.toggle('focus-mode', focusMode);
 updateFocusButton();
+bindMobileProgressRedirect();
 go('home');
 upd();
 

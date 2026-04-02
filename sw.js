@@ -1,4 +1,4 @@
-const CACHE_NAME = 'grammar-pwa-v1';
+const CACHE_NAME = 'grammar-pwa-v2';
 
 const PRECACHE_URLS = [
   '/',
@@ -46,17 +46,31 @@ self.addEventListener('fetch', (event) => {
   if (requestUrl.origin === self.location.origin) {
     event.respondWith(
       caches.match(request).then((cachedResponse) => {
+        const networkFetch = fetch(request)
+          .then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              const cloned = networkResponse.clone();
+              caches.open(CACHE_NAME).then((cache) => cache.put(request, cloned));
+            }
+            return networkResponse;
+          })
+          .catch(() => null);
+
         if (cachedResponse) {
+          // Serve cache immediately, then update cache in the background.
+          event.waitUntil(networkFetch);
           return cachedResponse;
         }
 
-        return fetch(request)
-          .then((networkResponse) => {
-            const cloned = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, cloned));
-            return networkResponse;
-          })
-          .catch(() => caches.match('/index.html'));
+        return networkFetch.then((response) => {
+          if (response) {
+            return response;
+          }
+          if (request.mode === 'navigate') {
+            return caches.match('/index.html');
+          }
+          return new Response('', { status: 504, statusText: 'Offline' });
+        });
       })
     );
   }
