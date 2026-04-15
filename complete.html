@@ -1,0 +1,2598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic English Grammar — EspressoEnglish</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF7F2;
+  --ink: #1A1208;
+  --espresso: #3B1E08;
+  --coffee: #7A4522;
+  --latte: #C9A87C;
+  --foam: #EDE6DA;
+  --steam: #F4EFE7;
+  --accent: #D4542A;
+  --green: #2E6B4F;
+  --highlight: #F7E8A4;
+  --border: rgba(58,30,8,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ── SIDEBAR ── */
+#sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 280px; height: 100vh;
+  background: var(--espresso);
+  overflow-y: auto;
+  z-index: 100;
+  padding: 0 0 40px;
+  border-right: 3px solid var(--coffee);
+  scrollbar-width: thin;
+  scrollbar-color: var(--coffee) var(--espresso);
+}
+
+#sidebar::-webkit-scrollbar { width: 4px; }
+#sidebar::-webkit-scrollbar-track { background: var(--espresso); }
+#sidebar::-webkit-scrollbar-thumb { background: var(--coffee); border-radius: 2px; }
+
+.sidebar-header {
+  padding: 28px 24px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky;
+  top: 0;
+  background: var(--espresso);
+  z-index: 10;
+}
+
+.sidebar-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--latte);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.sidebar-title {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.nav-group-label {
+  padding: 18px 24px 6px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(201,168,124,0.6);
+}
+
+.nav-item {
+  display: block;
+  padding: 7px 24px;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: 0.84rem;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: var(--latte);
+  background: rgba(255,255,255,0.05);
+  border-left-color: var(--latte);
+}
+
+/* ── HAMBURGER ── */
+#hamburger {
+  display: none;
+  position: fixed;
+  top: 16px; left: 16px;
+  z-index: 200;
+  background: var(--espresso);
+  border: none;
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+#hamburger span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--latte);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ── MAIN ── */
+#main {
+  margin-left: 280px;
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--espresso);
+  padding: 80px 60px 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(201,168,124,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero::after {
+  content: '"';
+  position: absolute;
+  bottom: -30px; right: 40px;
+  font-family: 'Playfair Display', serif;
+  font-size: 18rem;
+  color: rgba(201,168,124,0.06);
+  line-height: 1;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--latte);
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  color: var(--cream);
+  line-height: 1.15;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.hero h1 em {
+  color: var(--latte);
+  font-style: italic;
+}
+
+.hero p {
+  color: rgba(250,247,242,0.65);
+  max-width: 520px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.hero-stat .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--latte);
+  display: block;
+}
+
+.hero-stat .label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── CONTENT AREA ── */
+.content {
+  padding: 0 60px 80px;
+}
+
+/* ── LESSON SECTION ── */
+.lesson {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.5s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.lesson-number {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--latte);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.lesson h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--espresso);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.lesson h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--espresso);
+  margin: 28px 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+}
+
+.lesson p {
+  color: #3D2B1A;
+  margin-bottom: 16px;
+  max-width: 720px;
+}
+
+/* ── GRAMMAR TABLE ── */
+.grammar-table {
+  width: 100%;
+  max-width: 760px;
+  border-collapse: collapse;
+  margin: 20px 0 28px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(58,30,8,0.08);
+}
+
+.grammar-table th {
+  background: var(--espresso);
+  color: var(--latte);
+  padding: 12px 18px;
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.grammar-table td {
+  padding: 11px 18px;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--foam);
+  vertical-align: top;
+}
+
+.grammar-table tr:last-child td { border-bottom: none; }
+.grammar-table tr:nth-child(even) td { background: var(--steam); }
+.grammar-table tr:nth-child(odd) td { background: #fff; }
+
+/* ── EXAMPLES ── */
+.examples {
+  background: var(--foam);
+  border-left: 4px solid var(--latte);
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin: 16px 0 24px;
+  max-width: 680px;
+}
+
+.examples p {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.examples p:last-child { margin-bottom: 0; }
+
+.correct { color: var(--green); }
+.correct::before { content: '✓ '; font-weight: 700; }
+.incorrect { color: var(--accent); text-decoration: line-through; }
+.incorrect::before { content: '✗ '; font-weight: 700; }
+
+/* ── RULE BOX ── */
+.rule-box {
+  background: linear-gradient(135deg, var(--highlight), #fdf6d0);
+  border: 1px solid rgba(212,84,42,0.18);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  max-width: 680px;
+}
+
+.rule-box strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* ── QUIZ ── */
+.quiz-block {
+  background: var(--espresso);
+  border-radius: 14px;
+  padding: 32px;
+  margin-top: 36px;
+  max-width: 760px;
+  color: var(--cream);
+}
+
+.quiz-block h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--latte);
+  margin-bottom: 24px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.quiz-question {
+  margin-bottom: 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.quiz-question:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.quiz-question p {
+  color: rgba(250,247,242,0.9);
+  margin-bottom: 10px;
+  font-size: 0.92rem;
+  max-width: none;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  user-select: none;
+}
+
+.quiz-option:hover { background: rgba(255,255,255,0.09); border-color: rgba(201,168,124,0.3); }
+.quiz-option.correct-ans { background: rgba(46,107,79,0.3); border-color: rgba(46,107,79,0.6); color: #7ed3a8; }
+.quiz-option.wrong-ans { background: rgba(212,84,42,0.2); border-color: rgba(212,84,42,0.4); color: #f4987a; }
+.quiz-option.revealed { pointer-events: none; }
+
+.quiz-option input[type=radio] { display: none; }
+
+.option-letter {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+}
+
+.quiz-submit {
+  margin-top: 18px;
+  padding: 10px 28px;
+  background: var(--latte);
+  color: var(--espresso);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+}
+
+.quiz-submit:hover { background: #dbc098; transform: translateY(-1px); }
+.quiz-submit:disabled { opacity: 0.4; cursor: default; transform: none; }
+
+.quiz-score {
+  margin-top: 16px;
+  padding: 12px 18px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--latte);
+  display: none;
+}
+
+/* ── FILL-IN QUIZ ── */
+.fill-quiz {
+  background: var(--espresso);
+  border-radius: 14px;
+  padding: 32px;
+  margin-top: 36px;
+  max-width: 760px;
+}
+
+.fill-quiz h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--latte);
+  margin-bottom: 24px;
+}
+
+.fill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  font-size: 0.92rem;
+  color: rgba(250,247,242,0.85);
+}
+
+.fill-item span { line-height: 1.6; }
+
+.fill-input {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 5px 12px;
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  width: 130px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.fill-input:focus { border-color: var(--latte); background: rgba(255,255,255,0.14); }
+.fill-input.fill-correct { border-color: #4caf76; background: rgba(46,107,79,0.25); color: #7ed3a8; }
+.fill-input.fill-wrong { border-color: #d4542a; background: rgba(212,84,42,0.2); color: #f4987a; }
+
+/* ── TAGS ── */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+.tag-tense { background: rgba(58,30,8,0.1); color: var(--coffee); }
+.tag-structure { background: rgba(46,107,79,0.12); color: var(--green); }
+.tag-vocab { background: rgba(212,84,42,0.1); color: var(--accent); }
+
+/* ── WELCOME CARD ── */
+.welcome-card {
+  background: linear-gradient(135deg, #fff 0%, var(--steam) 100%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px;
+  margin-bottom: 40px;
+  max-width: 720px;
+  box-shadow: 0 4px 24px rgba(58,30,8,0.06);
+}
+
+.welcome-card .author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.author-avatar {
+  width: 48px; height: 48px;
+  background: var(--espresso);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--latte);
+  flex-shrink: 0;
+}
+
+.author-info strong { display: block; font-size: 0.95rem; color: var(--espresso); }
+.author-info span { font-size: 0.8rem; color: var(--coffee); }
+
+/* ── PROGRESS BAR ── */
+.progress-bar-wrap {
+  position: sticky;
+  top: 0;
+  background: var(--cream);
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 60px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.progress-label { font-size: 0.75rem; color: var(--coffee); white-space: nowrap; }
+.progress-track { flex: 1; height: 4px; background: var(--foam); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--latte); border-radius: 2px; width: 0%; transition: width 0.4s ease; }
+.progress-pct { font-size: 0.75rem; font-weight: 600; color: var(--espresso); font-family: 'DM Mono', monospace; min-width: 36px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  #sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+  #sidebar.open { transform: translateX(0); }
+  #hamburger { display: flex; }
+  #main { margin-left: 0; }
+  .hero { padding: 70px 24px 50px; }
+  .content { padding: 0 24px 60px; }
+  .progress-bar-wrap { padding: 10px 24px; }
+}
+
+/* ── BACK-TO-TOP ── */
+#btt {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 44px; height: 44px;
+  background: var(--espresso);
+  color: var(--latte);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(58,30,8,0.3);
+  z-index: 90;
+  transition: transform 0.2s;
+}
+#btt:hover { transform: translateY(-3px); }
+#btt.visible { display: flex; }
+
+/* ── OVERLAY ── */
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 90;
+}
+#overlay.show { display: block; }
+
+/* ── CORRECT/INCORRECT MARK QUIZ ── */
+.mark-quiz {
+  background: var(--espresso);
+  border-radius: 14px;
+  padding: 32px;
+  margin-top: 36px;
+  max-width: 760px;
+}
+
+.mark-quiz h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--latte);
+  margin-bottom: 22px;
+}
+
+.mark-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mark-item:hover { background: rgba(255,255,255,0.08); }
+
+.mark-item p {
+  color: rgba(250,247,242,0.85);
+  font-size: 0.9rem;
+  max-width: none;
+  margin: 0;
+  flex: 1;
+}
+
+.mark-btn-wrap { display: flex; gap: 8px; flex-shrink: 0; }
+
+.mark-btn {
+  padding: 4px 12px;
+  border-radius: 5px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.18s;
+}
+
+.mark-btn:hover { background: rgba(255,255,255,0.08); }
+.mark-btn.selected-correct { background: rgba(46,107,79,0.35); border-color: #4caf76; color: #7ed3a8; }
+.mark-btn.selected-wrong { background: rgba(212,84,42,0.25); border-color: #d4542a; color: #f4987a; }
+
+.mark-reveal { display: none; font-size: 0.8rem; margin-top: 6px; padding: 6px 10px; border-radius: 5px; }
+.mark-reveal.correct-reveal { background: rgba(46,107,79,0.2); color: #7ed3a8; }
+.mark-reveal.wrong-reveal { background: rgba(212,84,42,0.15); color: #f4987a; }
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <span class="sidebar-logo">EspressoEnglish</span>
+    <span class="sidebar-title">Basic Grammar Course</span>
+  </div>
+
+  <div class="nav-group-label">Introduction</div>
+  <a class="nav-item" href="#welcome">Welcome</a>
+
+  <div class="nav-group-label">Verb To Be</div>
+  <a class="nav-item" href="#present-be">Present Simple: Be</a>
+  <a class="nav-item" href="#there-is">There is / There are</a>
+
+  <div class="nav-group-label">Present Simple</div>
+  <a class="nav-item" href="#ps-positive">Positive</a>
+  <a class="nav-item" href="#ps-negative">Negative</a>
+  <a class="nav-item" href="#ps-questions">Questions</a>
+  <a class="nav-item" href="#ps-answers">Answering Yes/No</a>
+
+  <div class="nav-group-label">Present Continuous</div>
+  <a class="nav-item" href="#pc-positive">Positive</a>
+  <a class="nav-item" href="#pc-negative">Negative</a>
+  <a class="nav-item" href="#pc-questions">Questions</a>
+  <a class="nav-item" href="#ps-vs-pc">Simple vs. Continuous</a>
+
+  <div class="nav-group-label">Past Simple</div>
+  <a class="nav-item" href="#past-be">Be</a>
+  <a class="nav-item" href="#past-regular">Regular Verbs</a>
+  <a class="nav-item" href="#past-irregular">Irregular Verbs</a>
+
+  <div class="nav-group-label">Future</div>
+  <a class="nav-item" href="#future-going">Going To</a>
+  <a class="nav-item" href="#future-will">Will / Won't</a>
+  <a class="nav-item" href="#will-vs-going">Will or Going To?</a>
+
+  <div class="nav-group-label">Modals & Permission</div>
+  <a class="nav-item" href="#permission">Permission & Obligation</a>
+  <a class="nav-item" href="#basic-helping">Basic Helping Verbs</a>
+  <a class="nav-item" href="#modal-helping">Modal Helping Verbs</a>
+  <a class="nav-item" href="#should-could">Should / Could / Would</a>
+
+  <div class="nav-group-label">Perfect Tenses</div>
+  <a class="nav-item" href="#present-perfect">Present Perfect</a>
+  <a class="nav-item" href="#perfect-vs-past">Perfect vs. Past Simple</a>
+
+  <div class="nav-group-label">Sentence Structure</div>
+  <a class="nav-item" href="#verbs-to-ing">Verbs + TO or -ING</a>
+  <a class="nav-item" href="#direct-indirect">Direct & Indirect Objects</a>
+
+  <div class="nav-group-label">Nouns & Articles</div>
+  <a class="nav-item" href="#countable">Countable & Uncountable</a>
+  <a class="nav-item" href="#plurals">Forming Plurals</a>
+  <a class="nav-item" href="#this-that">This / That / These / Those</a>
+  <a class="nav-item" href="#articles">A, An, The</a>
+  <a class="nav-item" href="#possessives">Possessives</a>
+  <a class="nav-item" href="#some-any">Some, Any, No</a>
+
+  <div class="nav-group-label">Prepositions</div>
+  <a class="nav-item" href="#prep-in-on-at">In, On, At</a>
+  <a class="nav-item" href="#prep-of-from">Of, From, To, For</a>
+
+  <div class="nav-group-label">Other Grammar</div>
+  <a class="nav-item" href="#too-enough">Too and Enough</a>
+  <a class="nav-item" href="#either-neither">Either and Neither</a>
+  <a class="nav-item" href="#agreeing">Agreeing with So / Neither</a>
+  <a class="nav-item" href="#comparatives">Comparative Adjectives</a>
+  <a class="nav-item" href="#superlatives">Superlative Adjectives</a>
+  <a class="nav-item" href="#adverbs">Adverbs</a>
+
+  <div class="nav-group-label">Finish</div>
+  <a class="nav-item" href="#next-steps">Next Steps</a>
+</nav>
+
+<!-- Overlay -->
+<div id="overlay"></div>
+
+<!-- Hamburger -->
+<button id="hamburger" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- Main -->
+<div id="main">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-eyebrow">EspressoEnglish.net</div>
+    <h1>Basic English Grammar<br>for <em>ESL Students</em></h1>
+    <p>A complete, structured course covering every essential grammar topic — from verb tenses to adjectives, with explanations, examples, and interactive quizzes.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">40+</span><span class="label">Lessons</span></div>
+      <div class="hero-stat"><span class="num">300+</span><span class="label">Quiz Questions</span></div>
+      <div class="hero-stat"><span class="num">6</span><span class="label">Grammar Areas</span></div>
+    </div>
+  </header>
+
+  <!-- Progress -->
+  <div class="progress-bar-wrap">
+    <span class="progress-label">Your progress</span>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="progress-pct" id="progressPct">0%</span>
+  </div>
+
+  <!-- Content -->
+  <main class="content">
+
+<!-- ══════════════════════════════════════
+     WELCOME
+══════════════════════════════════════ -->
+<section class="lesson" id="welcome">
+  <div class="lesson-number">Introduction</div>
+  <h2>Welcome!</h2>
+  <div class="welcome-card">
+    <p>These lessons will help you learn essential English grammar. When you have a good strong foundation of basic grammar, then you can avoid simple mistakes and progress to higher levels of English.</p>
+    <p>The topics we will cover include:</p>
+    <div class="examples">
+      <p>• The main verb tenses used in English</p>
+      <p>• Important words like articles, possessives, and helping verbs</p>
+      <p>• Adjectives and adverbs</p>
+      <p>• Sentence structure</p>
+    </div>
+    <p>Try to do one lesson every day, and make sure to do the quizzes so that you can review and practice what you are learning.</p>
+    <div class="author">
+      <div class="author-avatar">S</div>
+      <div class="author-info">
+        <strong>Shayna Oliveira</strong>
+        <span>Teacher at EspressoEnglish.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRESENT SIMPLE: BE
+══════════════════════════════════════ -->
+<section class="lesson" id="present-be">
+  <div class="lesson-number">Lesson 1</div>
+  <h2>Present Simple: Be</h2>
+  <span class="tag tag-tense">Tense</span><span class="tag tag-structure">Verb Be</span>
+  <p>Let's learn how to use the verb BE in the present simple tense.</p>
+
+  <h3>Positive</h3>
+  <table class="grammar-table">
+    <thead><tr><th>Subject</th><th>Full Form</th><th>Short Form</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>I</td><td>I am</td><td>I'm</td><td>from Japan.</td></tr>
+      <tr><td>you / we / they</td><td>you / we / they are</td><td>you're / we're / they're</td><td>from Brazil.</td></tr>
+      <tr><td>he / she / it</td><td>he / she / it is</td><td>he's / she's / it's</td><td>from India.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Negative</h3>
+  <table class="grammar-table">
+    <thead><tr><th>Subject</th><th>Full Form</th><th>Contraction</th></tr></thead>
+    <tbody>
+      <tr><td>I</td><td>I am not</td><td>I'm not</td></tr>
+      <tr><td>you / we / they</td><td>are not</td><td>aren't / 're not</td></tr>
+      <tr><td>he / she / it</td><td>is not</td><td>isn't / 's not</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Questions</h3>
+  <table class="grammar-table">
+    <thead><tr><th>Auxiliary</th><th>Subject</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Am</td><td>I</td><td>Am I beautiful?</td></tr>
+      <tr><td>Are</td><td>you / we / they</td><td>Are you a teacher?</td></tr>
+      <tr><td>Is</td><td>he / she / it</td><td>Is she tall?</td></tr>
+    </tbody>
+  </table>
+
+  <h3>When We Use BE — 5 Common Situations</h3>
+  <div class="examples">
+    <p><strong>Name:</strong> I'm Joanna. · He's Paulo. · They're Aki and Yuta.</p>
+    <p><strong>Country/Nationality:</strong> I'm from the U.S. I'm American. · She's not Korean, she's Vietnamese.</p>
+    <p><strong>Age:</strong> I'm 27 years old. · How old are you? · She's 15.</p>
+    <p><strong>Emotions:</strong> I'm sad. · She's excited. · We're happy.</p>
+    <p><strong>Jobs:</strong> I'm a teacher. · He's a journalist. · They're artists.</p>
+  </div>
+
+  <!-- QUIZ: Present Simple Be -->
+  <div class="quiz-block" id="quiz-present-be">
+    <h3>Quiz — Present Simple: Be</h3>
+    <div id="qpb-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qpb')">Check Answers</button>
+    <div class="quiz-score" id="qpb-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     THERE IS / THERE ARE
+══════════════════════════════════════ -->
+<section class="lesson" id="there-is">
+  <div class="lesson-number">Lesson 2</div>
+  <h2>There is / There are</h2>
+  <span class="tag tag-structure">Structure</span>
+  <p>We use <em>there is</em> and <em>there are</em> to talk about things that exist and where things are located. Use <strong>there is</strong> for one thing, and <strong>there are</strong> for multiple things.</p>
+
+  <table class="grammar-table">
+    <thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead>
+    <tbody>
+      <tr><td><strong>(+)</strong></td><td>There is / There's a bed in the room.</td><td>There are two pillows on the bed.</td></tr>
+      <tr><td><strong>(–)</strong></td><td>There isn't a mirror in the bathroom.</td><td>There aren't any windows.</td></tr>
+      <tr><td><strong>(?)</strong></td><td>Is there a table? Yes, there is. / No, there isn't.</td><td>Are there any chairs? Yes, there are.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="rule-box">
+    <strong>Important Note</strong>
+    When a list starts with a singular item → use <strong>there is</strong>.<br>
+    When a list starts with a plural item → use <strong>there are</strong>.<br>
+    Ex: "There is a banana and two apples in the bowl." / "There are two apples and a banana in the bowl."
+  </div>
+
+  <!-- FILL QUIZ: There is/are -->
+  <div class="fill-quiz" id="quiz-there">
+    <h3>Quiz — There is / There are</h3>
+    <div id="there-items"></div>
+    <button class="quiz-submit" onclick="submitFill('there')">Check Answers</button>
+    <div class="quiz-score" id="there-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRESENT SIMPLE: POSITIVE
+══════════════════════════════════════ -->
+<section class="lesson" id="ps-positive">
+  <div class="lesson-number">Lesson 3</div>
+  <h2>Present Simple: Positive</h2>
+  <span class="tag tag-tense">Tense</span>
+  <p>Use the present simple for things that happen regularly or are generally true.</p>
+  <table class="grammar-table">
+    <thead><tr><th>Subject</th><th>Verb</th></tr></thead>
+    <tbody>
+      <tr><td>I, you, we, they</td><td>work</td></tr>
+      <tr><td>he, she, it</td><td>work<strong>s</strong></td></tr>
+    </tbody>
+  </table>
+  <h3>Special Cases</h3>
+  <div class="rule-box">
+    <strong>Consonant + –y → –ies</strong>
+    study → studies · cry → cries · try → tries · fly → flies
+  </div>
+  <div class="rule-box">
+    <strong>Verbs ending in -o, -sh, -s, -ss, -ch, -x → add -es</strong>
+    go → goes · watch → watches · kiss → kisses · teach → teaches · fix → fixes
+  </div>
+
+  <div class="quiz-block" id="quiz-ps-pos">
+    <h3>Quiz — Present Simple Positive</h3>
+    <div id="qpsp-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qpsp')">Check Answers</button>
+    <div class="quiz-score" id="qpsp-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRESENT SIMPLE: NEGATIVE
+══════════════════════════════════════ -->
+<section class="lesson" id="ps-negative">
+  <div class="lesson-number">Lesson 4</div>
+  <h2>Present Simple: Negative</h2>
+  <span class="tag tag-tense">Tense</span>
+  <p>Use the present simple negative for things that are not generally true. Add <strong>don't</strong> or <strong>doesn't</strong> before the main verb.</p>
+  <table class="grammar-table">
+    <thead><tr><th>Subject</th><th>Auxiliary</th><th>Main Verb</th></tr></thead>
+    <tbody>
+      <tr><td>I, you, we, they</td><td>don't</td><td>like</td></tr>
+      <tr><td>he, she, it</td><td>doesn't</td><td>like</td></tr>
+    </tbody>
+  </table>
+  <h3>Common Errors</h3>
+  <div class="examples">
+    <p class="incorrect">Martha doesn't likes to dance.</p>
+    <p class="correct">Martha doesn't like to dance.</p>
+    <p class="incorrect">I no like vegetables.</p>
+    <p class="correct">I don't like vegetables.</p>
+  </div>
+  <div class="quiz-block" id="quiz-psn">
+    <h3>Quiz — Present Simple Negative</h3>
+    <div id="qpsn-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qpsn')">Check Answers</button>
+    <div class="quiz-score" id="qpsn-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRESENT SIMPLE: QUESTIONS
+══════════════════════════════════════ -->
+<section class="lesson" id="ps-questions">
+  <div class="lesson-number">Lesson 5</div>
+  <h2>Present Simple: Questions</h2>
+  <span class="tag tag-tense">Tense</span>
+  <table class="grammar-table">
+    <thead><tr><th>Auxiliary</th><th>Subject</th><th>Main Verb</th></tr></thead>
+    <tbody>
+      <tr><td>Do</td><td>I, you, we, they</td><td>live in a city?</td></tr>
+      <tr><td>Does</td><td>he, she, it</td><td>live in a city?</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p><strong>With question words:</strong></p>
+    <p>Where do you live? · When does the library close? · How do these machines work?</p>
+  </div>
+  <h3>Common Errors</h3>
+  <div class="examples">
+    <p class="incorrect">Does she lives close to the beach?</p>
+    <p class="correct">Does she live close to the beach?</p>
+    <p class="incorrect">Where she lives?</p>
+    <p class="correct">Where does she live?</p>
+  </div>
+  <div class="fill-quiz" id="quiz-psq">
+    <h3>Quiz — Fill in DO or DOES</h3>
+    <div id="psq-items"></div>
+    <button class="quiz-submit" onclick="submitFill('psq')">Check Answers</button>
+    <div class="quiz-score" id="psq-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     YES/NO ANSWERS
+══════════════════════════════════════ -->
+<section class="lesson" id="ps-answers">
+  <div class="lesson-number">Lesson 6</div>
+  <h2>Present Simple: Answering Yes/No Questions</h2>
+  <span class="tag tag-tense">Tense</span>
+  <table class="grammar-table">
+    <thead><tr><th>Question</th><th>Positive Answer</th><th>Negative Answer</th></tr></thead>
+    <tbody>
+      <tr><td>Do you like rock music?</td><td>Yes, I do.</td><td>No, I don't.</td></tr>
+      <tr><td>Does John speak Italian?</td><td>Yes, he does.</td><td>No, he doesn't.</td></tr>
+      <tr><td>Do they understand English?</td><td>Yes, they do.</td><td>No, they don't.</td></tr>
+    </tbody>
+  </table>
+  <div class="rule-box">
+    <strong>Remember</strong>
+    Never say: "Yes, I like." or "No, I don't like."<br>
+    Always use the short answer: "Yes, I do." or "No, I don't."
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRESENT CONTINUOUS: POSITIVE
+══════════════════════════════════════ -->
+<section class="lesson" id="pc-positive">
+  <div class="lesson-number">Lesson 7</div>
+  <h2>Present Continuous: Positive</h2>
+  <span class="tag tag-tense">Tense</span>
+  <p>The present continuous is used for things happening <strong>right now</strong>.</p>
+  <table class="grammar-table">
+    <thead><tr><th>Subject</th><th>Auxiliary</th><th>Verb</th></tr></thead>
+    <tbody>
+      <tr><td>I</td><td>am</td><td>watching</td></tr>
+      <tr><td>you, we, they</td><td>are</td><td>watching</td></tr>
+      <tr><td>he, she, it</td><td>is</td><td>watching</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p>I'm watching TV right now. · He's studying at the moment. · It's raining today.</p>
+    <p>We're thinking about you. · They're playing baseball.</p>
+  </div>
+  <h3>Verbs Never Used in Continuous</h3>
+  <div class="examples">
+    <p class="incorrect">I'm believing in God.</p>
+    <p class="correct">I believe in God.</p>
+    <p class="incorrect">She's wanting a soda.</p>
+    <p class="correct">She wants a soda.</p>
+  </div>
+  <div class="mark-quiz" id="quiz-pcp">
+    <h3>Quiz — Mark Correct or Incorrect</h3>
+    <div id="pcp-items"></div>
+    <button class="quiz-submit" onclick="submitMark('pcp')">Check Answers</button>
+    <div class="quiz-score" id="pcp-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRESENT CONTINUOUS: NEGATIVE
+══════════════════════════════════════ -->
+<section class="lesson" id="pc-negative">
+  <div class="lesson-number">Lesson 8</div>
+  <h2>Present Continuous: Negative</h2>
+  <span class="tag tag-tense">Tense</span>
+  <table class="grammar-table">
+    <thead><tr><th>Subject</th><th>Full Form</th><th>Short Form</th></tr></thead>
+    <tbody>
+      <tr><td>I</td><td>I am not</td><td>I'm not</td></tr>
+      <tr><td>you, we, they</td><td>are not</td><td>aren't / 're not</td></tr>
+      <tr><td>he, she, it</td><td>is not</td><td>isn't / 's not</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p class="incorrect">I not living there anymore.</p>
+    <p class="correct">I'm not living there anymore.</p>
+    <p class="incorrect">He not doing his homework.</p>
+    <p class="correct">He's not doing his homework.</p>
+  </div>
+  <div class="mark-quiz" id="quiz-pcn">
+    <h3>Quiz — Mark Correct or Incorrect</h3>
+    <div id="pcn-items"></div>
+    <button class="quiz-submit" onclick="submitMark('pcn')">Check Answers</button>
+    <div class="quiz-score" id="pcn-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRESENT CONTINUOUS: QUESTIONS
+══════════════════════════════════════ -->
+<section class="lesson" id="pc-questions">
+  <div class="lesson-number">Lesson 9</div>
+  <h2>Present Continuous: Questions</h2>
+  <span class="tag tag-tense">Tense</span>
+  <table class="grammar-table">
+    <thead><tr><th>Type</th><th>Structure</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Yes/No</td><td>Am / Are / Is + subject + verb-ing?</td><td>Are you writing a letter?</td></tr>
+      <tr><td>Wh-question</td><td>Wh- + am/are/is + subject + verb-ing?</td><td>What are you eating?</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p class="incorrect">Why you are learning English?</p>
+    <p class="correct">Why are you learning English?</p>
+    <p class="incorrect">What he is doing?</p>
+    <p class="correct">What is he doing?</p>
+  </div>
+  <div class="mark-quiz" id="quiz-pcq">
+    <h3>Quiz — Mark Correct or Incorrect</h3>
+    <div id="pcq-items"></div>
+    <button class="quiz-submit" onclick="submitMark('pcq')">Check Answers</button>
+    <div class="quiz-score" id="pcq-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SIMPLE VS CONTINUOUS
+══════════════════════════════════════ -->
+<section class="lesson" id="ps-vs-pc">
+  <div class="lesson-number">Lesson 10</div>
+  <h2>Present Simple or Continuous?</h2>
+  <span class="tag tag-tense">Tense</span>
+  <table class="grammar-table">
+    <thead><tr><th>Present Simple</th><th>Present Continuous</th></tr></thead>
+    <tbody>
+      <tr><td>Things in general / regularly</td><td>Things happening now / currently</td></tr>
+      <tr><td>I work from 9–5 every day.</td><td>I'm currently working on a new project.</td></tr>
+      <tr><td>Mark studies English on Tuesdays.</td><td>Mark is studying the present continuous this week.</td></tr>
+      <tr><td>Does it usually rain in winter?</td><td>It's raining at the moment. Take an umbrella.</td></tr>
+    </tbody>
+  </table>
+  <div class="rule-box">
+    <strong>Time Clue Words</strong>
+    <strong>Simple:</strong> always, usually, often, sometimes, never, every (day/Monday/year…)<br>
+    <strong>Continuous:</strong> now, right now, at the moment, currently, this week/month, today
+  </div>
+  <div class="quiz-block" id="quiz-pspc">
+    <h3>Quiz — Simple or Continuous?</h3>
+    <div id="qpspc-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qpspc')">Check Answers</button>
+    <div class="quiz-score" id="qpspc-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PAST SIMPLE: BE
+══════════════════════════════════════ -->
+<section class="lesson" id="past-be">
+  <div class="lesson-number">Lesson 11</div>
+  <h2>Past Simple: Be</h2>
+  <span class="tag tag-tense">Past Tense</span>
+  <table class="grammar-table">
+    <thead><tr><th>Subject</th><th>Positive</th><th>Negative</th></tr></thead>
+    <tbody>
+      <tr><td>I, he, she, it</td><td>was</td><td>wasn't</td></tr>
+      <tr><td>you, we, they</td><td>were</td><td>weren't</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p>I was at the park yesterday. · They were on vacation last week.</p>
+    <p>When I was a child, I was very shy. · She was still in school 10 years ago.</p>
+  </div>
+  <div class="quiz-block" id="quiz-pastbe">
+    <h3>Quiz — Past Simple: Be</h3>
+    <div id="qpastbe-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qpastbe')">Check Answers</button>
+    <div class="quiz-score" id="qpastbe-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PAST SIMPLE: REGULAR
+══════════════════════════════════════ -->
+<section class="lesson" id="past-regular">
+  <div class="lesson-number">Lesson 12</div>
+  <h2>Past Simple: Regular Verbs</h2>
+  <span class="tag tag-tense">Past Tense</span>
+  <table class="grammar-table">
+    <thead><tr><th>Form</th><th>Structure</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Positive</td><td>verb + -ed</td><td>She worked yesterday.</td></tr>
+      <tr><td>Negative</td><td>didn't + base verb</td><td>She didn't work yesterday.</td></tr>
+      <tr><td>Question</td><td>Did + subject + base verb?</td><td>Did she work yesterday?</td></tr>
+    </tbody>
+  </table>
+  <div class="rule-box">
+    <strong>Spelling Rules</strong>
+    listen → listened · like → liked · stop → stopped · study → studied · try → tried
+  </div>
+  <div class="examples">
+    <p class="incorrect">Mary didn't liked the movie.</p>
+    <p class="correct">Mary didn't like the movie.</p>
+    <p class="incorrect">Did you studied for the test?</p>
+    <p class="correct">Did you study for the test?</p>
+  </div>
+  <div class="mark-quiz" id="quiz-pastreg">
+    <h3>Quiz — Mark Correct or Incorrect</h3>
+    <div id="pastreg-items"></div>
+    <button class="quiz-submit" onclick="submitMark('pastreg')">Check Answers</button>
+    <div class="quiz-score" id="pastreg-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PAST SIMPLE: IRREGULAR
+══════════════════════════════════════ -->
+<section class="lesson" id="past-irregular">
+  <div class="lesson-number">Lesson 13</div>
+  <h2>Past Simple: Irregular Verbs</h2>
+  <span class="tag tag-tense">Past Tense</span>
+  <p>Many verbs don't form the past by adding -ED. You need to memorize them.</p>
+  <table class="grammar-table">
+    <thead><tr><th>Base Form</th><th>Past (Positive)</th><th>Negative</th></tr></thead>
+    <tbody>
+      <tr><td>buy</td><td>bought</td><td>didn't buy</td></tr>
+      <tr><td>eat</td><td>ate</td><td>didn't eat</td></tr>
+      <tr><td>go</td><td>went</td><td>didn't go</td></tr>
+      <tr><td>have</td><td>had</td><td>didn't have</td></tr>
+      <tr><td>make</td><td>made</td><td>didn't make</td></tr>
+      <tr><td>meet</td><td>met</td><td>didn't meet</td></tr>
+      <tr><td>see</td><td>saw</td><td>didn't see</td></tr>
+      <tr><td>take</td><td>took</td><td>didn't take</td></tr>
+      <tr><td>write</td><td>wrote</td><td>didn't write</td></tr>
+      <tr><td>wear</td><td>wore</td><td>didn't wear</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p class="incorrect">I didn't saw her last night.</p>
+    <p class="correct">I didn't see her last night.</p>
+    <p class="incorrect">They didn't went to the party.</p>
+    <p class="correct">They didn't go to the party.</p>
+  </div>
+  <div class="quiz-block" id="quiz-pastirr">
+    <h3>Quiz — Past Simple Irregular Verbs</h3>
+    <div id="qpastirr-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qpastirr')">Check Answers</button>
+    <div class="quiz-score" id="qpastirr-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FUTURE: GOING TO
+══════════════════════════════════════ -->
+<section class="lesson" id="future-going">
+  <div class="lesson-number">Lesson 14</div>
+  <h2>Future with Going To</h2>
+  <span class="tag tag-tense">Future</span>
+  <p>Use <em>going to</em> to talk about future plans and predictions.</p>
+  <table class="grammar-table">
+    <thead><tr><th>Subject</th><th>Structure</th></tr></thead>
+    <tbody>
+      <tr><td>I</td><td>I'm going to take a test tomorrow.</td></tr>
+      <tr><td>He / She / It</td><td>He's / She's going to take a test tomorrow.</td></tr>
+      <tr><td>We / They</td><td>We're / They're going to take a test tomorrow.</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p class="incorrect">I going to buy some new shoes next week.</p>
+    <p class="correct">I'm going to buy some new shoes next week.</p>
+    <p class="incorrect">We're going have a picnic tomorrow.</p>
+    <p class="correct">We're going to have a picnic tomorrow.</p>
+  </div>
+  <div class="mark-quiz" id="quiz-futgo">
+    <h3>Quiz — Mark Correct or Incorrect</h3>
+    <div id="futgo-items"></div>
+    <button class="quiz-submit" onclick="submitMark('futgo')">Check Answers</button>
+    <div class="quiz-score" id="futgo-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FUTURE: WILL / WON'T
+══════════════════════════════════════ -->
+<section class="lesson" id="future-will">
+  <div class="lesson-number">Lesson 15</div>
+  <h2>Future with Will / Won't</h2>
+  <span class="tag tag-tense">Future</span>
+  <p>Use <em>will / won't</em> to make promises, offers, and decisions.</p>
+  <table class="grammar-table">
+    <thead><tr><th>Form</th><th>Structure</th></tr></thead>
+    <tbody>
+      <tr><td>Positive</td><td>I / you / he / she / we / they + will + verb</td></tr>
+      <tr><td>Contraction</td><td>I'll, you'll, he'll, she'll, we'll, they'll</td></tr>
+      <tr><td>Negative</td><td>… + won't + verb</td></tr>
+      <tr><td>Question</td><td>Will + subject + verb?</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p class="incorrect">I'll to make dinner.</p>
+    <p class="correct">I'll make dinner.</p>
+    <p class="incorrect">He won't to get the job.</p>
+    <p class="correct">He won't get the job.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     WILL VS GOING TO
+══════════════════════════════════════ -->
+<section class="lesson" id="will-vs-going">
+  <div class="lesson-number">Lesson 16</div>
+  <h2>Will or Going To?</h2>
+  <span class="tag tag-tense">Future</span>
+  <table class="grammar-table">
+    <thead><tr><th>Use</th><th>Form</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Plans &amp; arrangements</td><td>going to</td><td>We're going to get married in July.</td></tr>
+      <tr><td>Promises</td><td>will</td><td>I'll send you an e-mail.</td></tr>
+      <tr><td>Offers</td><td>will</td><td>I'll buy you a drink.</td></tr>
+      <tr><td>Instant decisions</td><td>will</td><td>"I'll have the rice."</td></tr>
+      <tr><td>Predictions</td><td>will or going to</td><td>Your wife will / is going to love those flowers!</td></tr>
+    </tbody>
+  </table>
+  <div class="rule-box">
+    <strong>Tip</strong>
+    Use "I think… will" and "I don't think… will" — NOT "I think… won't".<br>
+    ✗ I think you won't like this movie. ✓ I don't think you'll like this movie.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PERMISSION / OBLIGATION
+══════════════════════════════════════ -->
+<section class="lesson" id="permission">
+  <div class="lesson-number">Lesson 17</div>
+  <h2>Permission, Obligation, Prohibition</h2>
+  <span class="tag tag-vocab">Modal</span>
+  <table class="grammar-table">
+    <thead><tr><th>Meaning</th><th>Words</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>It's OK</td><td>can</td><td>You can ride your bike here.</td></tr>
+      <tr><td>It's not OK</td><td>can't / mustn't</td><td>You can't smoke here.</td></tr>
+      <tr><td>Necessary / obligatory</td><td>have to / need to / must</td><td>You must stop here.</td></tr>
+      <tr><td>Not necessary</td><td>don't have to / don't need to</td><td>You don't have to pay for the food.</td></tr>
+    </tbody>
+  </table>
+  <div class="rule-box">
+    <strong>Remember</strong>
+    Never use "to" after must/mustn't or can/can't!<br>
+    ✗ You must to stop. ✓ You must stop.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRESENT PERFECT
+══════════════════════════════════════ -->
+<section class="lesson" id="present-perfect">
+  <div class="lesson-number">Lesson 18</div>
+  <h2>Present Perfect</h2>
+  <span class="tag tag-tense">Perfect Tense</span>
+  <p>Formed with <strong>have / has + past participle</strong>. Used in two main situations:</p>
+  <div class="examples">
+    <p><strong>1) Past experiences (unspecified time):</strong> Have you been to Italy? Yes, I've been there three times.</p>
+    <p><strong>2) Actions that started in the past and continue now:</strong> I've been married for five years. / He's been a teacher since last January.</p>
+  </div>
+  <table class="grammar-table">
+    <thead><tr><th>Subject</th><th>Auxiliary</th><th>Past Participle</th></tr></thead>
+    <tbody>
+      <tr><td>I / you / we / they</td><td>have (I've / you've…)</td><td>been to Paris.</td></tr>
+      <tr><td>he / she / it</td><td>has (he's / she's…)</td><td>been to Paris.</td></tr>
+    </tbody>
+  </table>
+  <h3>Common Irregular Past Participles</h3>
+  <table class="grammar-table">
+    <thead><tr><th>Verb</th><th>Simple Past</th><th>Past Participle</th></tr></thead>
+    <tbody>
+      <tr><td>break</td><td>broke</td><td>broken</td></tr>
+      <tr><td>eat</td><td>ate</td><td>eaten</td></tr>
+      <tr><td>go</td><td>went</td><td>gone</td></tr>
+      <tr><td>see</td><td>saw</td><td>seen</td></tr>
+      <tr><td>take</td><td>took</td><td>taken</td></tr>
+      <tr><td>write</td><td>wrote</td><td>written</td></tr>
+      <tr><td>give</td><td>gave</td><td>given</td></tr>
+      <tr><td>meet</td><td>met</td><td>met</td></tr>
+    </tbody>
+  </table>
+  <div class="mark-quiz" id="quiz-pp">
+    <h3>Quiz — Mark Correct or Incorrect</h3>
+    <div id="pp-items"></div>
+    <button class="quiz-submit" onclick="submitMark('pp')">Check Answers</button>
+    <div class="quiz-score" id="pp-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PERFECT VS PAST
+══════════════════════════════════════ -->
+<section class="lesson" id="perfect-vs-past">
+  <div class="lesson-number">Lesson 19</div>
+  <h2>Present Perfect or Past Simple?</h2>
+  <span class="tag tag-tense">Tense</span>
+  <table class="grammar-table">
+    <thead><tr><th>Present Perfect</th><th>Past Simple</th></tr></thead>
+    <tbody>
+      <tr><td>Unspecified time: I've been to Europe.</td><td>Specific time: I went to Europe a few weeks ago.</td></tr>
+      <tr><td>"Unfinished": I've lived here for 3 years. (still here)</td><td>"Finished": I lived there for 3 years. (not anymore)</td></tr>
+    </tbody>
+  </table>
+  <div class="quiz-block" id="quiz-ppvsp">
+    <h3>Quiz — Perfect or Past Simple?</h3>
+    <div id="qppvsp-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qppvsp')">Check Answers</button>
+    <div class="quiz-score" id="qppvsp-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     BASIC HELPING VERBS
+══════════════════════════════════════ -->
+<section class="lesson" id="basic-helping">
+  <div class="lesson-number">Lesson 20</div>
+  <h2>Basic Helping Verbs</h2>
+  <span class="tag tag-structure">Structure</span>
+  <table class="grammar-table">
+    <thead><tr><th>Helping Verb</th><th>Use</th><th>Forms</th></tr></thead>
+    <tbody>
+      <tr><td>DO</td><td>Questions &amp; negatives</td><td>do / does (present), did (past)</td></tr>
+      <tr><td>BE</td><td>Continuous tenses</td><td>am / is / are (present), was / were (past)</td></tr>
+      <tr><td>HAVE</td><td>Perfect tenses</td><td>have / has (present), had (past)</td></tr>
+    </tbody>
+  </table>
+  <div class="fill-quiz" id="quiz-bhv">
+    <h3>Quiz — Fill in the Helping Verb</h3>
+    <div id="bhv-items"></div>
+    <button class="quiz-submit" onclick="submitFill('bhv')">Check Answers</button>
+    <div class="quiz-score" id="bhv-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MODAL HELPING VERBS
+══════════════════════════════════════ -->
+<section class="lesson" id="modal-helping">
+  <div class="lesson-number">Lesson 21</div>
+  <h2>Modal Helping Verbs</h2>
+  <span class="tag tag-vocab">Modal</span>
+  <table class="grammar-table">
+    <thead><tr><th>Modal</th><th>Meaning</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>can / could</td><td>Ability / possibility</td><td>I can swim. We could go to the movies.</td></tr>
+      <tr><td>may / might</td><td>Maybe</td><td>We might go camping this weekend.</td></tr>
+      <tr><td>should</td><td>Recommendation</td><td>You should go to the doctor.</td></tr>
+      <tr><td>must</td><td>Necessity</td><td>You must arrive on time for the exam.</td></tr>
+      <tr><td>will / won't</td><td>Future certainty</td><td>I'll help you write the report.</td></tr>
+      <tr><td>would</td><td>Hypothetical</td><td>If I were rich, I would travel the world.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══════════════════════════════════════
+     SHOULD / COULD / WOULD
+══════════════════════════════════════ -->
+<section class="lesson" id="should-could">
+  <div class="lesson-number">Lesson 22</div>
+  <h2>Should / Could / Would</h2>
+  <span class="tag tag-vocab">Modal</span>
+  <table class="grammar-table">
+    <thead><tr><th>Modal</th><th>Use</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>should / shouldn't</td><td>Advice</td><td>You should go to the doctor.</td></tr>
+      <tr><td>could / couldn't</td><td>Ability in past; polite requests</td><td>When I was younger, I could run a mile in 7 min.</td></tr>
+      <tr><td>could</td><td>Future possibilities</td><td>I could put ads on Facebook.</td></tr>
+      <tr><td>would</td><td>Unreal / imaginary situation</td><td>If I were rich, I'd give money to charity.</td></tr>
+      <tr><td>would you like</td><td>Polite offers</td><td>Would you like anything to drink?</td></tr>
+    </tbody>
+  </table>
+  <div class="quiz-block" id="quiz-scw">
+    <h3>Quiz — Should, Could, Would</h3>
+    <div id="qscw-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qscw')">Check Answers</button>
+    <div class="quiz-score" id="qscw-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     VERBS + TO or -ING
+══════════════════════════════════════ -->
+<section class="lesson" id="verbs-to-ing">
+  <div class="lesson-number">Lesson 23</div>
+  <h2>Verbs + TO or -ING?</h2>
+  <span class="tag tag-structure">Structure</span>
+  <table class="grammar-table">
+    <thead><tr><th>Verbs + TO (infinitive)</th><th>Verbs + -ING</th></tr></thead>
+    <tbody>
+      <tr><td>decide, hope, learn, need, offer, plan, pretend, promise, try, want, would like</td><td>avoid, enjoy, finish, can't stand, don't mind, look forward to, practice, spend time, stop, suggest</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p class="correct">She decided to study biology.</p>
+    <p class="correct">I enjoy skiing.</p>
+    <p class="incorrect">You should avoid to eat after 10 PM.</p>
+    <p class="correct">You should avoid eating after 10 PM.</p>
+  </div>
+  <div class="rule-box">
+    <strong>Special Cases</strong>
+    <strong>remember/forget + TO</strong> → reminder/future action: "Remember to bring your dictionary!"<br>
+    <strong>remember/forget + -ING</strong> → memory/past: "I remember having dinner with my grandparents."<br>
+    <strong>start, like, love, hate</strong> → both forms OK: "I like to run." = "I like running."
+  </div>
+  <div class="quiz-block" id="quiz-toing">
+    <h3>Quiz — Verbs + TO or -ING</h3>
+    <div id="qtoing-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qtoing')">Check Answers</button>
+    <div class="quiz-score" id="qtoing-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     DIRECT & INDIRECT OBJECTS
+══════════════════════════════════════ -->
+<section class="lesson" id="direct-indirect">
+  <div class="lesson-number">Lesson 24</div>
+  <h2>Direct &amp; Indirect Objects</h2>
+  <span class="tag tag-structure">Structure</span>
+  <p>A <strong>direct object</strong> is the thing acted upon by the verb. Keep the verb and direct object together — don't put other words between them.</p>
+  <div class="examples">
+    <p class="incorrect">I bought yesterday a new t-shirt.</p>
+    <p class="correct">I bought a new t-shirt yesterday.</p>
+  </div>
+  <p>An <strong>indirect object</strong> is the person who receives the action. It can go between verb and direct object (without "to"), or at the end (with "to").</p>
+  <div class="examples">
+    <p class="correct">I gave John the books. (indirect object in middle)</p>
+    <p class="correct">I gave the books to John. (indirect object at end with "to")</p>
+    <p class="incorrect">I gave to John the books.</p>
+  </div>
+  <div class="mark-quiz" id="quiz-dio">
+    <h3>Quiz — Mark Correct or Incorrect</h3>
+    <div id="dio-items"></div>
+    <button class="quiz-submit" onclick="submitMark('dio')">Check Answers</button>
+    <div class="quiz-score" id="dio-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     COUNTABLE / UNCOUNTABLE
+══════════════════════════════════════ -->
+<section class="lesson" id="countable">
+  <div class="lesson-number">Lesson 25</div>
+  <h2>Countable &amp; Uncountable Nouns</h2>
+  <span class="tag tag-structure">Nouns</span>
+  <table class="grammar-table">
+    <thead><tr><th></th><th>Countable</th><th>Uncountable</th></tr></thead>
+    <tbody>
+      <tr><td>Examples</td><td>cat/cats, book/books, friend/friends</td><td>water, money, music, furniture, information</td></tr>
+      <tr><td>Quantity word</td><td>many / few / a lot of</td><td>much / little / a lot of</td></tr>
+      <tr><td>With a/an?</td><td>Yes: a cat, an apple</td><td>No: ✗ an information</td></tr>
+      <tr><td>Plural -s?</td><td>Yes: cats, books</td><td>No: ✗ informations</td></tr>
+    </tbody>
+  </table>
+  <div class="quiz-block" id="quiz-cu">
+    <h3>Quiz — Countable / Uncountable Nouns</h3>
+    <div id="qcu-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qcu')">Check Answers</button>
+    <div class="quiz-score" id="qcu-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FORMING PLURALS
+══════════════════════════════════════ -->
+<section class="lesson" id="plurals">
+  <div class="lesson-number">Lesson 26</div>
+  <h2>Forming Plurals of Nouns</h2>
+  <span class="tag tag-structure">Nouns</span>
+  <table class="grammar-table">
+    <thead><tr><th>Rule</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td>Regular: add -s</td><td>cat → cats, wall → walls</td></tr>
+      <tr><td>-ch, -sh, -x, -s: add -es</td><td>switch → switches, box → boxes</td></tr>
+      <tr><td>consonant + -y → -ies</td><td>baby → babies, army → armies</td></tr>
+      <tr><td>-f / -fe → -ves</td><td>knife → knives, wife → wives, leaf → leaves</td></tr>
+      <tr><td>Irregular</td><td>man→men, woman→women, child→children, tooth→teeth, foot→feet, mouse→mice</td></tr>
+      <tr><td>Same form (singular = plural)</td><td>sheep, deer, fish, series, species</td></tr>
+    </tbody>
+  </table>
+  <div class="fill-quiz" id="quiz-plur">
+    <h3>Quiz — Write the Plural Form</h3>
+    <div id="plur-items"></div>
+    <button class="quiz-submit" onclick="submitFill('plur')">Check Answers</button>
+    <div class="quiz-score" id="plur-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     THIS / THAT / THESE / THOSE
+══════════════════════════════════════ -->
+<section class="lesson" id="this-that">
+  <div class="lesson-number">Lesson 27</div>
+  <h2>This, That, These, Those</h2>
+  <span class="tag tag-structure">Pronouns</span>
+  <table class="grammar-table">
+    <thead><tr><th>Word</th><th>Number</th><th>Distance</th></tr></thead>
+    <tbody>
+      <tr><td>this</td><td>singular</td><td>near</td></tr>
+      <tr><td>that</td><td>singular</td><td>far</td></tr>
+      <tr><td>these</td><td>plural</td><td>near</td></tr>
+      <tr><td>those</td><td>plural</td><td>far</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p>This apple is green. · That apple is red.</p>
+    <p>These books are new. · Those books are old.</p>
+    <p>This computer is very fast. · These are my favorite sunglasses.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     A, AN, THE
+══════════════════════════════════════ -->
+<section class="lesson" id="articles">
+  <div class="lesson-number">Lesson 28</div>
+  <h2>Articles: A, An, The</h2>
+  <span class="tag tag-structure">Articles</span>
+  <table class="grammar-table">
+    <thead><tr><th>Article</th><th>Use</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>a / an</td><td>One non-specific thing</td><td>I want to buy a car. He's eating an apple.</td></tr>
+      <tr><td>the</td><td>Specific thing</td><td>Tokyo is the capital of Japan.</td></tr>
+      <tr><td>(none)</td><td>Things in general; cities/countries</td><td>She likes pizza. I live in China.</td></tr>
+    </tbody>
+  </table>
+  <div class="rule-box">
+    <strong>A vs AN</strong>
+    Use <strong>an</strong> before vowel sounds: an apple, an egg, an hour (silent h)<br>
+    Use <strong>a</strong> before consonant sounds: a ball, a uniform (sounds like "yu")
+  </div>
+  <div class="quiz-block" id="quiz-art">
+    <h3>Quiz — A, An, The, or None?</h3>
+    <div id="qart-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qart')">Check Answers</button>
+    <div class="quiz-score" id="qart-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     POSSESSIVES
+══════════════════════════════════════ -->
+<section class="lesson" id="possessives">
+  <div class="lesson-number">Lesson 29</div>
+  <h2>Possessives</h2>
+  <span class="tag tag-structure">Structure</span>
+  <table class="grammar-table">
+    <thead><tr><th>Pronoun</th><th>Before noun (possessive adj.)</th><th>After be (possessive pronoun)</th></tr></thead>
+    <tbody>
+      <tr><td>I</td><td>my</td><td>mine</td></tr>
+      <tr><td>you</td><td>your</td><td>yours</td></tr>
+      <tr><td>he</td><td>his</td><td>his</td></tr>
+      <tr><td>she</td><td>her</td><td>hers</td></tr>
+      <tr><td>it</td><td>its</td><td>—</td></tr>
+      <tr><td>we</td><td>our</td><td>ours</td></tr>
+      <tr><td>they</td><td>their</td><td>theirs</td></tr>
+    </tbody>
+  </table>
+  <div class="rule-box">
+    <strong>Don't confuse its and it's!</strong>
+    <strong>its</strong> = possessive (The cat ate its food.)<br>
+    <strong>it's</strong> = it is (It's raining today.)
+  </div>
+  <div class="quiz-block" id="quiz-poss">
+    <h3>Quiz — Possessives</h3>
+    <div id="qposs-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qposs')">Check Answers</button>
+    <div class="quiz-score" id="qposs-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SOME / ANY / NO
+══════════════════════════════════════ -->
+<section class="lesson" id="some-any">
+  <div class="lesson-number">Lesson 30</div>
+  <h2>Some, Any, No</h2>
+  <span class="tag tag-vocab">Quantifiers</span>
+  <table class="grammar-table">
+    <thead><tr><th>Word</th><th>Use</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>some</td><td>Positive statements; offers &amp; requests</td><td>I've read some good books. Can I have some soda?</td></tr>
+      <tr><td>any</td><td>Negative statements &amp; questions</td><td>I don't have any pencils. Do they have any children?</td></tr>
+      <tr><td>no</td><td>Negative (alternative to "not any")</td><td>There are no books on the table. = There aren't any books on the table.</td></tr>
+    </tbody>
+  </table>
+  <div class="rule-box">
+    <strong>Something / Anything / Nothing — same rules!</strong>
+    I want something new. · I didn't eat anything. · There's nothing to do.
+  </div>
+  <div class="quiz-block" id="quiz-san">
+    <h3>Quiz — Some / Any / No</h3>
+    <div id="qsan-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qsan')">Check Answers</button>
+    <div class="quiz-score" id="qsan-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PREPOSITIONS: IN ON AT
+══════════════════════════════════════ -->
+<section class="lesson" id="prep-in-on-at">
+  <div class="lesson-number">Lesson 31</div>
+  <h2>Prepositions: In, On, At</h2>
+  <span class="tag tag-vocab">Prepositions</span>
+  <table class="grammar-table">
+    <thead><tr><th>Preposition</th><th>Time</th><th>Place</th></tr></thead>
+    <tbody>
+      <tr><td><strong>IN</strong></td><td>months, seasons, years, periods of day<br><em>in January, in summer, in 2004, in the morning</em></td><td>cities, countries, rooms, enclosed spaces<br><em>in Tokyo, in the kitchen, in the car</em></td></tr>
+      <tr><td><strong>ON</strong></td><td>dates &amp; days<br><em>on Monday, on Feb 14th</em></td><td>transportation, surfaces<br><em>on the bus, on the table, on the wall</em></td></tr>
+      <tr><td><strong>AT</strong></td><td>specific times<br><em>at 6:00, at noon, at night</em></td><td>contexts &amp; events<br><em>at school, at work, at a party</em></td></tr>
+    </tbody>
+  </table>
+  <div class="fill-quiz" id="quiz-prep1">
+    <h3>Quiz — Fill in IN, ON, or AT</h3>
+    <div id="prep1-items"></div>
+    <button class="quiz-submit" onclick="submitFill('prep1')">Check Answers</button>
+    <div class="quiz-score" id="prep1-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PREPOSITIONS: OF FROM TO FOR
+══════════════════════════════════════ -->
+<section class="lesson" id="prep-of-from">
+  <div class="lesson-number">Lesson 32</div>
+  <h2>Prepositions: Of, From, To, For</h2>
+  <span class="tag tag-vocab">Prepositions</span>
+  <table class="grammar-table">
+    <thead><tr><th>Preposition</th><th>Main Uses</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td><strong>from</strong></td><td>Origins, sources, starting points, distance</td><td>I'm from the U.S. · I borrowed a book from the library.</td></tr>
+      <tr><td><strong>of</strong></td><td>Quality/part of something, quantity expressions</td><td>the color of the sky · all of the students · one of my friends</td></tr>
+      <tr><td><strong>to</strong></td><td>Destination, giving, motive (with verb)</td><td>We're going to Paris. · I came here to see you.</td></tr>
+      <tr><td><strong>for</strong></td><td>Benefits, period of time, motive (with noun), function</td><td>Good for your health. · We've lived here for 2 years. · I'm studying for an exam.</td></tr>
+    </tbody>
+  </table>
+  <div class="fill-quiz" id="quiz-prep2">
+    <h3>Quiz — Fill in OF, FROM, TO, or FOR</h3>
+    <div id="prep2-items"></div>
+    <button class="quiz-submit" onclick="submitFill('prep2')">Check Answers</button>
+    <div class="quiz-score" id="prep2-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TOO AND ENOUGH
+══════════════════════════════════════ -->
+<section class="lesson" id="too-enough">
+  <div class="lesson-number">Lesson 33</div>
+  <h2>Too and Enough</h2>
+  <span class="tag tag-structure">Structure</span>
+  <table class="grammar-table">
+    <thead><tr><th>Structure</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>too + adjective</td><td>This shirt is too expensive.</td></tr>
+      <tr><td>too much + uncountable noun</td><td>I drank too much water.</td></tr>
+      <tr><td>too many + countable noun</td><td>She put too many eggs in the cake.</td></tr>
+      <tr><td>verb + too much</td><td>He complains too much.</td></tr>
+      <tr><td>enough + noun</td><td>We don't have enough people.</td></tr>
+      <tr><td>adjective + enough</td><td>You're not old enough to buy alcohol.</td></tr>
+      <tr><td>verb + enough</td><td>I don't exercise enough.</td></tr>
+    </tbody>
+  </table>
+  <div class="quiz-block" id="quiz-te">
+    <h3>Quiz — Too and Enough</h3>
+    <div id="qte-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qte')">Check Answers</button>
+    <div class="quiz-score" id="qte-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     EITHER / NEITHER
+══════════════════════════════════════ -->
+<section class="lesson" id="either-neither">
+  <div class="lesson-number">Lesson 34</div>
+  <h2>Either and Neither</h2>
+  <span class="tag tag-vocab">Vocabulary</span>
+  <table class="grammar-table">
+    <thead><tr><th>Word</th><th>Meaning</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>either</td><td>One of two (choice)</td><td>You can have either chocolate or vanilla.</td></tr>
+      <tr><td>neither</td><td>Not one, not the other</td><td>I speak neither French nor Spanish.</td></tr>
+      <tr><td>either one</td><td>I don't mind which</td><td>"Coffee or tea?" "Either one."</td></tr>
+      <tr><td>neither one</td><td>I don't want either</td><td>"Sandwich or pizza?" "Neither. I'm not hungry."</td></tr>
+    </tbody>
+  </table>
+  <div class="fill-quiz" id="quiz-en">
+    <h3>Quiz — Either or Neither?</h3>
+    <div id="en-items"></div>
+    <button class="quiz-submit" onclick="submitFill('en')">Check Answers</button>
+    <div class="quiz-score" id="en-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     AGREEING
+══════════════════════════════════════ -->
+<section class="lesson" id="agreeing">
+  <div class="lesson-number">Lesson 35</div>
+  <h2>Agreeing with So / Neither / Too</h2>
+  <span class="tag tag-structure">Structure</span>
+  <table class="grammar-table">
+    <thead><tr><th>Original Statement</th><th>Agreeing (positive)</th><th>Agreeing (negative)</th></tr></thead>
+    <tbody>
+      <tr><td>Simple present</td><td>So do I.</td><td>Neither do I.</td></tr>
+      <tr><td>Present with BE</td><td>So am I.</td><td>Neither am I.</td></tr>
+      <tr><td>Simple past</td><td>So did I.</td><td>Neither did I.</td></tr>
+      <tr><td>Past with BE</td><td>So was I.</td><td>Neither was I.</td></tr>
+      <tr><td>Present perfect</td><td>So have I.</td><td>Neither have I.</td></tr>
+      <tr><td>Can</td><td>So can I.</td><td>Neither can I.</td></tr>
+      <tr><td>Will</td><td>So will I.</td><td>Neither will I.</td></tr>
+      <tr><td>Would</td><td>So would I.</td><td>Neither would I.</td></tr>
+    </tbody>
+  </table>
+  <div class="rule-box">
+    <strong>Informal shortcuts</strong>
+    "Me too." (agree with positive) · "Me neither." (agree with negative)
+  </div>
+  <div class="quiz-block" id="quiz-agree">
+    <h3>Quiz — Agreeing with So / Neither / Too</h3>
+    <div id="qagree-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qagree')">Check Answers</button>
+    <div class="quiz-score" id="qagree-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     COMPARATIVE ADJECTIVES
+══════════════════════════════════════ -->
+<section class="lesson" id="comparatives">
+  <div class="lesson-number">Lesson 36</div>
+  <h2>Comparative Adjectives</h2>
+  <span class="tag tag-structure">Adjectives</span>
+  <p>Use comparatives to compare two things.</p>
+  <table class="grammar-table">
+    <thead><tr><th>Adjective Type</th><th>Rule</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td>One syllable</td><td>Add -er</td><td>tall → taller, fast → faster</td></tr>
+      <tr><td>Vowel + consonant ending</td><td>Double + -er</td><td>big → bigger, hot → hotter</td></tr>
+      <tr><td>Consonant + -y</td><td>Remove -y, add -ier</td><td>easy → easier, happy → happier</td></tr>
+      <tr><td>3+ syllables</td><td>more / less + adjective</td><td>more expensive, less popular</td></tr>
+      <tr><td>Irregular</td><td>Remember!</td><td>good → better, bad → worse, far → farther</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p>Phil is <strong>older than</strong> Ben. · A car is <strong>more expensive than</strong> a computer.</p>
+    <p class="incorrect">This restaurant is more better than the one we ate at yesterday.</p>
+    <p class="correct">This restaurant is better than the one we ate at yesterday.</p>
+  </div>
+  <div class="mark-quiz" id="quiz-comp">
+    <h3>Quiz — Mark Correct or Incorrect</h3>
+    <div id="comp-items"></div>
+    <button class="quiz-submit" onclick="submitMark('comp')">Check Answers</button>
+    <div class="quiz-score" id="comp-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SUPERLATIVE ADJECTIVES
+══════════════════════════════════════ -->
+<section class="lesson" id="superlatives">
+  <div class="lesson-number">Lesson 37</div>
+  <h2>Superlative Adjectives</h2>
+  <span class="tag tag-structure">Adjectives</span>
+  <p>Use superlatives to compare three or more things.</p>
+  <table class="grammar-table">
+    <thead><tr><th>Adjective Type</th><th>Rule</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td>Short words</td><td>Add -est</td><td>the oldest, the biggest, the easiest</td></tr>
+      <tr><td>Long words</td><td>most / least + adjective</td><td>the most beautiful, the least expensive</td></tr>
+      <tr><td>Irregular</td><td>Remember!</td><td>the best, the worst, the farthest</td></tr>
+    </tbody>
+  </table>
+  <div class="rule-box">
+    <strong>Remember</strong>
+    Always use <strong>the</strong> before superlatives!<br>
+    ✗ I read newest lesson. ✓ I read the newest lesson.
+  </div>
+  <div class="quiz-block" id="quiz-sup">
+    <h3>Quiz — Superlative Adjectives</h3>
+    <div id="qsup-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qsup')">Check Answers</button>
+    <div class="quiz-score" id="qsup-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ADVERBS
+══════════════════════════════════════ -->
+<section class="lesson" id="adverbs">
+  <div class="lesson-number">Lesson 38</div>
+  <h2>Adverbs</h2>
+  <span class="tag tag-structure">Adjectives</span>
+  <p>Use <strong>adjectives</strong> to describe nouns. Use <strong>adverbs</strong> to describe verbs, or other adjectives.</p>
+  <table class="grammar-table">
+    <thead><tr><th>Adjective</th><th>Adverb</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>slow</td><td>slowly</td><td>add -ly</td></tr>
+      <tr><td>careful</td><td>carefully</td><td>add -ly</td></tr>
+      <tr><td>easy</td><td>easily</td><td>-y → -ily</td></tr>
+      <tr><td>good</td><td>well</td><td>irregular</td></tr>
+      <tr><td>fast</td><td>fast</td><td>same form</td></tr>
+      <tr><td>hard</td><td>hard</td><td>same form</td></tr>
+    </tbody>
+  </table>
+  <div class="examples">
+    <p>My grandfather drives <strong>slowly</strong>, but I drive <strong>fast</strong>.</p>
+    <p>I can read English <strong>well</strong>, but I speak <strong>badly</strong>.</p>
+    <p>That mansion is <strong>ridiculously</strong> expensive. (adverb describes adjective)</p>
+  </div>
+  <div class="quiz-block" id="quiz-adv">
+    <h3>Quiz — Adjective or Adverb?</h3>
+    <div id="qadv-questions"></div>
+    <button class="quiz-submit" onclick="submitQuiz('qadv')">Check Answers</button>
+    <div class="quiz-score" id="qadv-score"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     NEXT STEPS
+══════════════════════════════════════ -->
+<section class="lesson" id="next-steps">
+  <div class="lesson-number">Congratulations!</div>
+  <h2>Great job! Next Steps for Learning</h2>
+  <div class="welcome-card">
+    <p>Congratulations on finishing the Basic English Grammar lessons! You now have a good understanding of essential English grammar, and you're ready to continue to Intermediate English Grammar.</p>
+    <p>Remember — grammar isn't the only thing to learn! It's also important to build your vocabulary and learn practical phrases so that you can speak English well.</p>
+    <div class="examples">
+      <p>• <strong>Vocabulary Builder Level 1</strong> — Learn 1000+ useful English words</p>
+      <p>• <strong>Everyday English Speaking Level 1</strong> — Learn real English phrases for daily life</p>
+    </div>
+    <div class="author">
+      <div class="author-avatar">✓</div>
+      <div class="author-info">
+        <strong>Course Complete</strong>
+        <span>Use coupon TENOFF to save $10 on any course</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+</div>
+
+<!-- Back to Top -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ══════════════════════════════════════
+// QUIZ DATA
+// ══════════════════════════════════════
+const quizzes = {
+  qpb: {
+    questions: [
+      { q: "We ___ from Canada.", opts:["am","isn't","aren't"], ans:2 },
+      { q: "My parents ___ divorced.", opts:["am","are","is"], ans:1 },
+      { q: "I ___ tired.", opts:["'m","'re","'s"], ans:0 },
+      { q: "Where ___ you from?", opts:["is","am","are"], ans:2 },
+      { q: "___ your brother tall?", opts:["Am","Are","Is"], ans:2 },
+      { q: "Sarah ___ married.", opts:["'m not","'re not","'s not"], ans:2 },
+      { q: "Bob and Tony ___ my cousins.", opts:["am","are","is"], ans:1 },
+      { q: "___ the food at this restaurant good?", opts:["Am","Is","Are"], ans:1 },
+      { q: "My apartment ___ very small.", opts:["is","am","are"], ans:0 },
+      { q: "Kate: 'Are you thirsty?' Joe: 'No, ___.'", opts:["I aren't","I'm not","you're not"], ans:1 },
+    ]
+  },
+  qpsp: {
+    questions: [
+      { q: "My brother ___ to college in New York.", opts:["go","goes","gos"], ans:1 },
+      { q: "I ___ to play tennis.", opts:["like","likes","like's"], ans:0 },
+      { q: "My friends ___ to school every day.", opts:["walk","walks","walkes"], ans:0 },
+      { q: "Peter ___ to the news on the radio.", opts:["listen","listens","listen's"], ans:1 },
+      { q: "Clara and Robert ___ English at night.", opts:["studies","study","studys"], ans:1 },
+      { q: "The baby ___ when he is hungry.", opts:["cries","cry","cryes"], ans:0 },
+      { q: "Their apartment ___ very nice!", opts:["look","look's","looks"], ans:2 },
+      { q: "We ___ our house every Sunday.", opts:["clean","cleans","cleanes"], ans:0 },
+      { q: "Joe ___ two big black dogs.", opts:["has","have","haves"], ans:0 },
+      { q: "Susan ___ lots of TV.", opts:["watch","watchs","watches"], ans:2 },
+    ]
+  },
+  qpsn: {
+    questions: [
+      { q: "I ___ this movie.", opts:["doesn't understand","don't understand","no understand"], ans:1 },
+      { q: "Jackson ___ how to cook.", opts:["doesn't know","don't know","not know"], ans:0 },
+      { q: "My aunt and uncle ___ any children.", opts:["don't has","don't have","doesn't have"], ans:1 },
+      { q: "Martin ___ Chinese.", opts:["doesn't speak","don't speak","no speaks"], ans:0 },
+      { q: "We ___ in Europe.", opts:["doesn't lives","doesn't live","don't live"], ans:2 },
+      { q: "My sister ___ happy.", opts:["doesn't be","isn't","not"], ans:1 },
+      { q: "Carla ___ early.", opts:["doesn't wake up","don't wake up","doesn't wakes up"], ans:0 },
+    ]
+  },
+  qpspc: {
+    questions: [
+      { q: "They always ___ to the gym after work.", opts:["are going","go"], ans:1 },
+      { q: "Today it's a holiday, so he ___ working.", opts:["works","isn't working"], ans:1 },
+      { q: "'Where ___ you going?' 'To grandma's!'", opts:["are","do"], ans:0 },
+      { q: "How often ___ you clean your house?", opts:["are you cleaning","do you clean"], ans:1 },
+      { q: "Jane is cold because ___ a jacket.", opts:["she doesn't wear","she's not wearing"], ans:1 },
+      { q: "My colleagues normally ___ lunch in the office.", opts:["are eating","eat"], ans:1 },
+      { q: "How many children ___ you have?", opts:["are you having","do you have"], ans:1 },
+      { q: "Please turn down the music; I ___ to study.", opts:["try","I'm trying"], ans:1 },
+    ]
+  },
+  qpastbe: {
+    questions: [
+      { q: "Where ___ you yesterday afternoon?", opts:["was","wasn't","were","weren't"], ans:2 },
+      { q: "Where ___ your grandfather born?", opts:["was","wasn't","were","weren't"], ans:0 },
+      { q: "Pablo Picasso ___ a writer. He was a painter.", opts:["was","wasn't","were","weren't"], ans:1 },
+      { q: "My friends ___ at school because they were sick.", opts:["was","wasn't","were","weren't"], ans:3 },
+      { q: "'Where were you?' 'I ___ at the dentist's.'", opts:["wasn't","was","were","weren't"], ans:1 },
+      { q: "We ___ there for a conference last month.", opts:["was","wasn't","were","weren't"], ans:2 },
+      { q: "David ___ happy, but Janet and Tim ___ — they hate surprises.", opts:["was / weren't","were / wasn't","wasn't / were","weren't / was"], ans:0 },
+      { q: "'Were you shy as a child?' 'No, I ___ . I talked to everyone!'", opts:["was","wasn't","were","weren't"], ans:1 },
+    ]
+  },
+  qpastirr: {
+    questions: [
+      { q: "Jimmy and Sean ___ a window while playing baseball inside the house.", opts:["bought","broke","built"], ans:1 },
+      { q: "We ___ really late yesterday.", opts:["sleeped","slept","slipt"], ans:1 },
+      { q: "Mrs. Johnson ___ us about World War II in history class.", opts:["learned","taught","thought"], ans:1 },
+      { q: "My boss ___ me an important e-mail this morning.", opts:["said","sent","spent"], ans:1 },
+      { q: "My favorite team ___ the championship last year.", opts:["wan","wore","won"], ans:2 },
+      { q: "Everyone ___ cake at Harold's birthday party.", opts:["ate","eat","eated"], ans:0 },
+      { q: "I ___ the eggs and milk in the refrigerator.", opts:["did","put","went"], ans:1 },
+      { q: "We ___ tickets to the show.", opts:["didn't get","didn't got","weren't get"], ans:0 },
+      { q: "I ___ understand the movie.", opts:["wasn't","didn't can","couldn't"], ans:2 },
+      { q: "Aaron and Barbara ___ out after work yesterday.", opts:["didn't go","didn't gone","didn't went"], ans:0 },
+    ]
+  },
+  qppvsp: {
+    questions: [
+      { q: "I ___ you at the meeting last Monday.", opts:["didn't see","haven't seen"], ans:0 },
+      { q: "Joel ___ a lot of interesting jobs in his life. (still alive)", opts:["had","has had"], ans:1 },
+      { q: "He ___ his best friend since 1990.", opts:["knew","'s known"], ans:1 },
+      { q: "Dana ___ me an hour ago.", opts:["called","'s called"], ans:0 },
+      { q: "I ___ never gone skiing.", opts:["'ve never gone","never went"], ans:0 },
+      { q: "My parents ___ in the same house for 30 years. (still there)", opts:["have lived","lived"], ans:0 },
+      { q: "___ you like the movie we saw yesterday?", opts:["Did","Have you liked"], ans:0 },
+      { q: "The first man ___ on the moon in 1969.", opts:["has walked","walked"], ans:1 },
+    ]
+  },
+  qscw: {
+    questions: [
+      { q: "Helen, ___ you come over here for a minute?", opts:["could","should","wouldn't"], ans:0 },
+      { q: "You ___ like my brother if you got to know him better.", opts:["couldn't","should","would"], ans:2 },
+      { q: "I ___ call you last night because I left my cell phone at home.", opts:["couldn't","shouldn't","wouldn't"], ans:0 },
+      { q: "When your father was a boy, he ___ play soccer for 5 hours straight.", opts:["could","should","wouldn't"], ans:0 },
+      { q: "In my opinion, you ___ dye your hair blonde. You'd look great!", opts:["could","should","would"], ans:1 },
+      { q: "You really ___ stay up so late. I don't think you're getting enough sleep.", opts:["couldn't","shouldn't","wouldn't"], ans:1 },
+      { q: "I ___ touch that equipment if I were you. It looks dangerous.", opts:["shouldn't","couldn't","wouldn't"], ans:2 },
+      { q: "___ Joanna like some chicken?", opts:["Could","Would","Should"], ans:1 },
+    ]
+  },
+  qtoing: {
+    questions: [
+      { q: "My son decided ___ his piano lessons.", opts:["stopping","to stop"], ans:1 },
+      { q: "I promised ___ the apartment.", opts:["cleaning","to clean"], ans:1 },
+      { q: "Would you mind ___ down the music a little?", opts:["turning","to turn"], ans:0 },
+      { q: "He learned how ___ when he was just 14.", opts:["to drive","driving"], ans:0 },
+      { q: "I enjoy ___ time with my family.", opts:["spending","to spend"], ans:0 },
+      { q: "I'm really looking forward to ___ dance classes next month.", opts:["start","starting"], ans:1 },
+      { q: "Would you like ___ us for lunch?", opts:["to join","joining"], ans:0 },
+      { q: "I forgot ___ my camera, and now I can't take pictures.", opts:["bringing","to bring"], ans:1 },
+      { q: "When are you going to finish ___ the computer?", opts:["to use","using"], ans:1 },
+      { q: "I've always avoided ___ into credit card debt.", opts:["getting","to get"], ans:0 },
+    ]
+  },
+  qcu: {
+    questions: [
+      { q: "I didn't understand the lesson, so I asked ___.", opts:["a lot of questions.","many question.","a little question."], ans:0 },
+      { q: "___ think English grammar is difficult.", opts:["A lot of person","Many people","Much people"], ans:1 },
+      { q: "___ of books were delivered to the school yesterday.", opts:["A few boxes","Any boxes","Some box"], ans:0 },
+      { q: "Their relationship has ___. They argue almost every day.", opts:["a lot of problems","many problem","much problems"], ans:0 },
+      { q: "There are ___ in the classroom.", opts:["some desk","so much desks","twenty desks"], ans:2 },
+      { q: "How ___ do you drink?", opts:["lots of tea","many tea","much tea"], ans:2 },
+      { q: "He has ___ to do over the weekend.", opts:["a lot of works","many work","some work"], ans:2 },
+    ]
+  },
+  qart: {
+    questions: [
+      { q: "Leonardo is ___ actor.", opts:["a","an","the","---"], ans:1 },
+      { q: "Jim plays ___ basketball after school.", opts:["a","an","the","---"], ans:3 },
+      { q: "My new office has ___ window.", opts:["a","an","the","---"], ans:0 },
+      { q: "There's ___ problem with the equipment.", opts:["a","an","the","---"], ans:0 },
+      { q: "___ only light in the classroom isn't working.", opts:["A","An","The","---"], ans:2 },
+      { q: "He has ___ interesting job.", opts:["a","an","the","---"], ans:1 },
+      { q: "We've been to ___ France three times.", opts:["a","an","the","---"], ans:3 },
+      { q: "Martha hates ___ vegetables.", opts:["a","an","the","---"], ans:3 },
+      { q: "My friend said it was ___ best movie of the year.", opts:["a","an","the","---"], ans:2 },
+      { q: "I have ___ idea!", opts:["a","an","the","---"], ans:1 },
+    ]
+  },
+  qposs: {
+    questions: [
+      { q: "Dan and Benny were late to ___ first high school class.", opts:["his","its","their"], ans:2 },
+      { q: "Good news! Brian passed ___ driving test!", opts:["his","her","your"], ans:0 },
+      { q: "I can't eat Thai food. ___ too spicy for me.", opts:["Is","It's","Its"], ans:1 },
+      { q: "I don't feel well. ___ stomach hurts.", opts:["I'm","my","your"], ans:1 },
+      { q: "My friend and I drive together because ___ offices are in the same neighborhood.", opts:["its","our","their"], ans:1 },
+      { q: "I think you'll love the new TV — ___ screen is huge!", opts:["its","his","your"], ans:0 },
+      { q: "My ___ toys are quite expensive.", opts:["children's","childrens'","childrens's"], ans:0 },
+      { q: "My sister lost ___ glasses.", opts:["his","her","your"], ans:1 },
+    ]
+  },
+  qsan: {
+    questions: [
+      { q: "We bought ___ apples at the market.", opts:["any","some"], ans:1 },
+      { q: "They don't have ___ children.", opts:["any","some"], ans:0 },
+      { q: "I have ___ to tell you.", opts:["anything","something"], ans:1 },
+      { q: "We didn't understand ___ the teacher said.", opts:["anything","nothing"], ans:0 },
+      { q: "___ ate the last piece of cake.", opts:["Anybody","Somebody"], ans:1 },
+      { q: "I rang the doorbell, but ___ was home.", opts:["anyone","no one"], ans:1 },
+    ]
+  },
+  qte: {
+    questions: [
+      { q: "The computer was ___, so we didn't buy it.", opts:["expensive enough","enough expensive","too expensive"], ans:2 },
+      { q: "This book is ___ to read; I don't understand it at all.", opts:["difficult enough","too difficult","enough difficult"], ans:1 },
+      { q: "They didn't have ___ for all the people at the wedding reception.", opts:["enough food","food enough","too food"], ans:0 },
+      { q: "There were ___ students and ___.", opts:["enough / too much desks","too / not desks enough","too many / not enough desks"], ans:2 },
+      { q: "I wanted to catch the 9:00 train, but I arrived ___.", opts:["enough late","too late","too much late"], ans:1 },
+      { q: "The test was ___ for everyone to pass.", opts:["easy enough","too much easy","enough easy"], ans:0 },
+    ]
+  },
+  qagree: {
+    questions: [
+      { q: "'I'm not going to the conference.'", opts:["Me neither.","Me too.","Neither do I.","So am I."], ans:0 },
+      { q: "'I'm thirsty.'", opts:["I too.","Me neither.","Me too.","So do I."], ans:2 },
+      { q: "'I don't know anything about politics.'", opts:["Neither can I.","Neither do I.","Neither have I.","So do I."], ans:1 },
+      { q: "'I'm thinking about getting out of the city this weekend.'", opts:["So am I.","So do I.","So can I.","So will I."], ans:0 },
+      { q: "'I had long hair when I was younger.'", opts:["So have I.","Neither did I.","So did I.","Neither had I."], ans:2 },
+      { q: "'I wasn't interested in any of the new classes.'", opts:["Neither did I.","Me too.","Neither was I.","Neither would I."], ans:2 },
+      { q: "'I haven't met the new teacher yet.'", opts:["Neither was I.","Neither had I.","I neither.","Neither have I."], ans:3 },
+      { q: "'I'll be on vacation next week.'", opts:["So am I.","So can I.","So will I.","So would I."], ans:2 },
+    ]
+  },
+  qsup: {
+    questions: [
+      { q: "That's ___ movie I've ever seen!", opts:["funniest","the funnier","the funniest"], ans:2 },
+      { q: "English is ___ subject for me, and math is ___.", opts:["the easiest / the most difficult","easiest / difficultest","the most easy / the most difficult"], ans:0 },
+      { q: "Alaska is ___ place I've ever been to.", opts:["coldest","the coldest","the most cold"], ans:1 },
+      { q: "War and Peace is ___ book I've ever read.", opts:["the more long","the most long","the longest"], ans:2 },
+      { q: "That restaurant has ___ food I've ever eaten.", opts:["the baddest","the worse","the worst"], ans:2 },
+      { q: "Paris is considered one of ___ cities in the world.", opts:["romanticest","more romantic","the most romantic"], ans:2 },
+      { q: "___ class at the school starts at 7:00 AM.", opts:["The earlier","The earliest","The most early"], ans:1 },
+    ]
+  },
+  qadv: {
+    questions: [
+      { q: "George gives ___ of his time to help poor children.", opts:["generous","generously"], ans:1 },
+      { q: "Helen wears very ___ clothes.", opts:["stylish","stylishly"], ans:0 },
+      { q: "My husband learned to cook really ___ after taking a culinary course.", opts:["good","well"], ans:1 },
+      { q: "Peter thinks that buying a motorcycle is a ___ idea.", opts:["bad","badly"], ans:0 },
+      { q: "Wanda dances ___. I'm sure she'll be a professional ballerina.", opts:["beautiful","beautifully"], ans:1 },
+      { q: "Please carry that box ___. It has fragile electronic equipment inside.", opts:["careful","carefully"], ans:1 },
+    ]
+  },
+};
+
+// Fill-in quizzes data
+const fillQuizzes = {
+  there: {
+    items: [
+      { before: "", after: " a lot of trees behind my house.", ans: "There are" },
+      { before: "", after: " many famous universities in that city.", ans: "There are" },
+      { before: "", after: " a park, a cafe, and several supermarkets near the hotel.", ans: "There is" },
+      { before: "", after: " some people playing soccer on the grass.", ans: "There are" },
+      { before: "", after: " already some furniture in the apartment.", ans: "There is" },
+      { before: "", after: " an interesting article in today's newspaper.", ans: "There is" },
+      { before: "", after: " forks and spoons in the drawer next to the sink.", ans: "There are" },
+      { before: "", after: " information about our company on the website.", ans: "There is" },
+      { before: "", after: " a white car parked on the corner.", ans: "There is" },
+      { before: "", after: " not enough worksheets for all the students.", ans: "There are" },
+    ]
+  },
+  psq: {
+    items: [
+      { before: "", after: " you have any brothers and sisters?", ans: "Do" },
+      { before: "", after: " we watch too much TV?", ans: "Do" },
+      { before: "", after: " they do any exercise?", ans: "Do" },
+      { before: "", after: " Larissa play a musical instrument?", ans: "Does" },
+      { before: "", after: " he work in an office?", ans: "Does" },
+      { before: "", after: " your children talk on the phone a lot?", ans: "Do" },
+      { before: "", after: " your mother know how to use a computer?", ans: "Does" },
+      { before: "", after: " she have a car?", ans: "Does" },
+      { before: "", after: " Tom and Larry play baseball?", ans: "Do" },
+      { before: "", after: " Joan watch TV at night?", ans: "Does" },
+    ]
+  },
+  bhv: {
+    items: [
+      { before: "", after: " your friends speak English?", ans: "Do" },
+      { before: "", after: " he have any children?", ans: "Does" },
+      { before: "How ", after: " this machine work?", ans: "does" },
+      { before: "", after: " you go anywhere last weekend?", ans: "Did" },
+      { before: "What ", after: " she buy at the store yesterday?", ans: "did" },
+      { before: "My teacher ", after: " explaining the lesson.", ans: "is" },
+      { before: "The dogs ", after: " playing in the park.", ans: "are" },
+      { before: "Next week we ", after: " moving to a new house.", ans: "will be" },
+      { before: "All the students ", after: " taken the test.", ans: "have" },
+      { before: "I ", after: " just heard some good news.", ans: "have" },
+      { before: "Maria ", after: " joined a hiking club.", ans: "has" },
+      { before: "The milk ", after: " gone bad.", ans: "has" },
+    ]
+  },
+  plur: {
+    items: [
+      { before: "Do you want some fresh ", after: "?", ans: "strawberries", hint: "(strawberry)" },
+      { before: "He dated several ", after: " before meeting his wife.", ans: "women", hint: "(woman)" },
+      { before: "I put the spices on ", after: " in the kitchen.", ans: "shelves", hint: "(shelf)" },
+      { before: "Lots of ", after: " leave the station every hour.", ans: "buses", hint: "(bus)" },
+      { before: "Many ", after: " love that playground.", ans: "children", hint: "(child)" },
+      { before: "Our cat has caught a lot of ", after: ".", ans: "mice", hint: "(mouse)" },
+      { before: "The dentist will check your ", after: ".", ans: "teeth", hint: "(tooth)" },
+      { before: "The police haven't caught the ", after: " yet.", ans: "thieves", hint: "(thief)" },
+      { before: "Those soldiers were ", after: " in battle.", ans: "heroes", hint: "(hero)" },
+      { before: "We added ", after: " to the stew.", ans: "potatoes", hint: "(potato)" },
+    ]
+  },
+  prep1: {
+    items: [
+      { before: "I'm ", after: " home.", ans: "at" },
+      { before: "It's ", after: " the bathroom.", ans: "in" },
+      { before: "I like to go skiing ", after: " the winter.", ans: "in" },
+      { before: "My cousin lives ", after: " Australia.", ans: "in" },
+      { before: "I'll start my new job ", after: " March 1st.", ans: "on" },
+      { before: "My sister's arriving ", after: " the earliest train.", ans: "on" },
+      { before: "My son is waiting for me ", after: " the bus stop.", ans: "at" },
+      { before: "We're going to a baseball game ", after: " Saturday.", ans: "on" },
+      { before: "Why are your clothes ", after: " the floor?", ans: "on" },
+      { before: "My mother's birthday is ", after: " May.", ans: "in" },
+      { before: "It's a dangerous area; don't go there ", after: " night.", ans: "at" },
+      { before: "Living ", after: " New York City is very expensive.", ans: "in" },
+      { before: "The meeting ended ", after: " 4:45.", ans: "at" },
+      { before: "There's a bowl of fruit ", after: " the table.", ans: "on" },
+      { before: "The books are ", after: " my backpack.", ans: "in" },
+    ]
+  },
+  prep2: {
+    items: [
+      { before: "How far is it ", after: " here to the city center?", ans: "from" },
+      { before: "I got a gift ", after: " my grandparents.", ans: "from" },
+      { before: "I wrote my name at the top ", after: " the paper.", ans: "of" },
+      { before: "My family is originally ", after: " Argentina.", ans: "from" },
+      { before: "My favorite time ", after: " day is the early evening.", ans: "of" },
+      { before: "One leg ", after: " the table is broken.", ans: "of" },
+      { before: "This ornament is made ", after: " glass.", ans: "of" },
+      { before: "This purse was made ", after: " recycled plastic bags.", ans: "from" },
+      { before: "Can we stop at the store ", after: " get some groceries?", ans: "to" },
+      { before: "Exercising every day is great ", after: " your health.", ans: "for" },
+      { before: "He's been looking for a job ", after: " several months.", ans: "for" },
+      { before: "I cooked dinner ", after: " my friend when she was sick.", ans: "for" },
+      { before: "I'm studying ", after: " become a veterinarian.", ans: "to" },
+      { before: "Let's walk ", after: " the park.", ans: "to" },
+      { before: "They went shopping ", after: " some new clothes.", ans: "for" },
+    ]
+  },
+  en: {
+    items: [
+      { before: "", after: " of these shirts fit me; do you have a larger size?", ans: "Neither" },
+      { before: "Do you want to take the bus or the train? ", after: " one is fine with me.", ans: "Either" },
+      { before: "Have you called ", after: " of your parents lately?", ans: "either" },
+      { before: "I don't like this movie. I don't ", after: ".", ans: "either" },
+      { before: "I got two job offers, but I didn't want to work for ", after: " of those big companies.", ans: "either" },
+      { before: "I'm an introvert; I like ", after: " huge parties nor noisy crowds.", ans: "neither" },
+      { before: "My boss offered me ", after: " an extra day off or a small bonus.", ans: "either" },
+      { before: "We called two babysitters, but ", after: " one was available.", ans: "neither" },
+    ]
+  },
+};
+
+// Mark-correct quizzes
+const markQuizzes = {
+  pcp: {
+    items: [
+      { s: "Billy and Mark are driving to the airport at the moment.", correct: true },
+      { s: "Clara and Jill is reading the newspaper.", correct: false, fix: "should be 'are reading'" },
+      { s: "He's running to work because he's late.", correct: true },
+      { s: "I learning English in school.", correct: false, fix: "should be 'I'm learning'" },
+      { s: "James is listen to the radio.", correct: false, fix: "should be 'is listening'" },
+      { s: "My children are doing their homework.", correct: true },
+      { s: "She wearing a white T-shirt and jeans.", correct: false, fix: "should be 'She's wearing'" },
+      { s: "Stop opening all the packages - you're making a mess!", correct: true },
+      { s: "My friend are talking with the teacher.", correct: false, fix: "should be 'is talking'" },
+      { s: "I'm sitting next to my brother.", correct: true },
+    ]
+  },
+  pcn: {
+    items: [
+      { s: "Brian isn't eat anything because he just had lunch.", correct: false, fix: "should be 'isn't eating'" },
+      { s: "He no making dinner.", correct: false, fix: "should be 'He's not making'" },
+      { s: "I not reading any books at the moment.", correct: false, fix: "should be 'I'm not reading'" },
+      { s: "My team isn't playing very well in this game.", correct: true },
+      { s: "Paula's not wearing sunglasses.", correct: true },
+      { s: "They're at the party, but they're not dancing.", correct: true },
+      { s: "Tom and Tiffany isn't playing video games now.", correct: false, fix: "should be 'aren't playing'" },
+      { s: "We're not drinking wine because we have to drive home soon.", correct: true },
+      { s: "You're not listen to me.", correct: false, fix: "should be 'not listening'" },
+      { s: "I'm not feeling well. I think it was something I ate.", correct: true },
+    ]
+  },
+  pcq: {
+    items: [
+      { s: "Are the children sleeping?", correct: true },
+      { s: "How are you feeling today?", correct: true },
+      { s: "How many T-shirts you are buying?", correct: false, fix: "should be 'are you buying'" },
+      { s: "Is it raining now?", correct: true },
+      { s: "What are they try to do?", correct: false, fix: "should be 'are they trying'" },
+      { s: "What magazine are you reading?", correct: true },
+      { s: "Which hotel he is staying at?", correct: false, fix: "should be 'is he staying'" },
+      { s: "Who is she wait for?", correct: false, fix: "should be 'is she waiting'" },
+      { s: "Why is he leaving school early?", correct: true },
+      { s: "What you thinking about?", correct: false, fix: "should be 'What are you thinking'" },
+    ]
+  },
+  pastreg: {
+    items: [
+      { s: "Did the teacher ask you any questions in class this morning?", correct: true },
+      { s: "We tryed to talk to the manager, but he was busy.", correct: false, fix: "should be 'tried'" },
+      { s: "Did you remembered to pay the electric bill?", correct: false, fix: "should be 'Did you remember'" },
+      { s: "Gabi and Sandy didn't walk to the beach because it was too far.", correct: true },
+      { s: "How long you waited for the bus last night?", correct: false, fix: "should be 'How long did you wait'" },
+      { s: "I did start piano lessons last week.", correct: false, fix: "should be 'I started'" },
+      { s: "What time did the plane land?", correct: true },
+      { s: "My brother didn't helped me carry my books.", correct: false, fix: "should be 'didn't help'" },
+      { s: "She no called me yesterday.", correct: false, fix: "should be 'She didn't call'" },
+      { s: "We rented an apartment on our vacation last year.", correct: true },
+      { s: "I didn't need to use a calculator for my math homework.", correct: true },
+      { s: "When they arrived at the airport, they checked their bags.", correct: true },
+      { s: "Where did you lived when you were a child?", correct: false, fix: "should be 'Where did you live'" },
+      { s: "'Did you pass the test?' 'No, I didn't.'", correct: true },
+    ]
+  },
+  futgo: {
+    items: [
+      { s: "Is you going to start any new projects this year?", correct: false, fix: "should be 'Are you going to'" },
+      { s: "Barbara and Adrian is going to start studying English next semester.", correct: false, fix: "should be 'are going'" },
+      { s: "I going to buy flowers for my girlfriend's birthday.", correct: false, fix: "should be 'I'm going'" },
+      { s: "Laura's not going to stay in a hotel during her next vacation.", correct: true },
+      { s: "Is Martha going make a lot of money in her new job?", correct: false, fix: "should be 'going to make'" },
+      { s: "Marty's going to meet John for lunch at 12:30.", correct: true },
+      { s: "My father not going to come home until 9:00.", correct: false, fix: "should be 'father is not going'" },
+      { s: "They're not going to win the game.", correct: true },
+      { s: "Tim and Janet are going cook dinner on Friday.", correct: false, fix: "should be 'going to cook'" },
+      { s: "We're going to visit our friends in Rio de Janeiro in December.", correct: true },
+      { s: "What movie are you going to see tonight?", correct: true },
+      { s: "I'm not going to eat any dessert after dinner.", correct: true },
+    ]
+  },
+  pp: {
+    items: [
+      { s: "Have you ever drived a Ferrari?", correct: false, fix: "should be 'driven'" },
+      { s: "Gary is known Darla for a long time.", correct: false, fix: "should be 'has known'" },
+      { s: "Has he ever eaten Brazilian food?", correct: true },
+      { s: "She's recently wrote a book.", correct: false, fix: "should be 'written'" },
+      { s: "Have you heard the new song by Adele?", correct: true },
+      { s: "He hasn't woken up yet.", correct: true },
+      { s: "Help, police! That man's just stolen my wallet!", correct: true },
+      { s: "I haven't take the test yet.", correct: false, fix: "should be 'taken'" },
+      { s: "I've lived in Orlando for three years.", correct: true },
+      { s: "Laura have sold her car.", correct: false, fix: "should be 'has sold'" },
+      { s: "No, they hasn't eaten lunch yet.", correct: false, fix: "should be 'haven't eaten'" },
+      { s: "She's been to Berlin twice.", correct: true },
+      { s: "They already given me the money.", correct: false, fix: "should be 'They've already given'" },
+      { s: "Has you ever met my brother?", correct: false, fix: "should be 'Have you met'" },
+      { s: "I haven't read the newspaper in the past week.", correct: true },
+    ]
+  },
+  dio: {
+    items: [
+      { s: "He will get some gifts for Christmas.", correct: true },
+      { s: "I made breakfast very early.", correct: true },
+      { s: "I saved for you a slice of pizza.", correct: false, fix: "Should be: I saved you a slice of pizza / I saved a slice of pizza for you." },
+      { s: "I showed the pictures to my friends.", correct: true },
+      { s: "Let me give to you some advice.", correct: false, fix: "Should be: Let me give you some advice / Let me give some advice to you." },
+      { s: "My friend offered me a ride home.", correct: true },
+      { s: "She wants to sell makeup to you.", correct: true },
+      { s: "The waiter will bring to you a beer.", correct: false, fix: "Should be: The waiter will bring you a beer." },
+      { s: "They told me an amazing story.", correct: true },
+      { s: "We got for you two tickets to the concert.", correct: false, fix: "Should be: We got you two tickets / We got two tickets for you." },
+      { s: "We'll carry upstairs the boxes.", correct: false, fix: "Should be: We'll carry the boxes upstairs." },
+      { s: "You took without asking my camera.", correct: false, fix: "Should be: You took my camera without asking." },
+    ]
+  },
+  comp: {
+    items: [
+      { s: "A book is longer a magazine.", correct: false, fix: "should be 'longer than a magazine'" },
+      { s: "American football is dangerouser than baseball.", correct: false, fix: "should be 'more dangerous'" },
+      { s: "This restaurant is more better than the one we ate at yesterday.", correct: false, fix: "should be 'better than'" },
+      { s: "Ashley is prettier than Sandy.", correct: true },
+      { s: "Craig is more friendly than Paul.", correct: false, fix: "should be 'friendlier'" },
+      { s: "I'm popular than her.", correct: false, fix: "should be 'more popular than'" },
+      { s: "Listening to English is harder than reading English.", correct: true },
+      { s: "The couch is more comfortable than the chair.", correct: true },
+      { s: "An elephant is bigger of a mouse.", correct: false, fix: "should be 'bigger than'" },
+      { s: "The new movie is more bad than the original movie.", correct: false, fix: "should be 'worse'" },
+      { s: "The sun is hoter than the moon.", correct: false, fix: "should be 'hotter'" },
+      { s: "The weather in London is wetter than the weather in Cairo.", correct: true },
+      { s: "This test was easier than the last one.", correct: true },
+      { s: "Vegetables are better for your health than candy.", correct: true },
+      { s: "The movie was much more interesting than the book.", correct: true },
+    ]
+  },
+};
+
+// ══════════════════════════════════════
+// RENDER MULTIPLE-CHOICE QUIZZES
+// ══════════════════════════════════════
+function renderQuizzes() {
+  Object.keys(quizzes).forEach(id => {
+    const data = quizzes[id];
+    const container = document.getElementById(id + '-questions');
+    if (!container) return;
+    data.questions.forEach((q, qi) => {
+      const div = document.createElement('div');
+      div.className = 'quiz-question';
+      div.innerHTML = `<p><strong>${qi+1}.</strong> ${q.q}</p><div class="quiz-options">` +
+        q.opts.map((o, oi) => `
+          <label class="quiz-option" data-q="${qi}" data-o="${oi}" data-correct="${oi===q.ans}">
+            <input type="radio" name="${id}_q${qi}" value="${oi}">
+            <span class="option-letter">${String.fromCharCode(65+oi)}</span>
+            <span>${o}</span>
+          </label>`).join('') +
+        `</div>`;
+      container.appendChild(div);
+    });
+  });
+}
+
+function submitQuiz(id) {
+  const data = quizzes[id];
+  const container = document.getElementById(id + '-questions');
+  const scoreEl = document.getElementById(id + '-score');
+  let correct = 0;
+  data.questions.forEach((q, qi) => {
+    const opts = container.querySelectorAll(`[data-q="${qi}"]`);
+    const selected = container.querySelector(`input[name="${id}_q${qi}"]:checked`);
+    opts.forEach(opt => {
+      opt.classList.add('revealed');
+      const oi = parseInt(opt.dataset.o);
+      if (oi === q.ans) opt.classList.add('correct-ans');
+      else if (selected && parseInt(selected.value) === oi) opt.classList.add('wrong-ans');
+    });
+    if (selected && parseInt(selected.value) === q.ans) correct++;
+  });
+  scoreEl.style.display = 'block';
+  scoreEl.textContent = `Score: ${correct} / ${data.questions.length} (${Math.round(correct/data.questions.length*100)}%)`;
+  container.closest('.quiz-block').querySelector('.quiz-submit').disabled = true;
+  updateProgress();
+}
+
+// ══════════════════════════════════════
+// RENDER FILL-IN QUIZZES
+// ══════════════════════════════════════
+function renderFillQuizzes() {
+  Object.keys(fillQuizzes).forEach(id => {
+    const data = fillQuizzes[id];
+    const container = document.getElementById(id + '-items');
+    if (!container) return;
+    data.items.forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'fill-item';
+      div.innerHTML = `<span>${i+1}. ${item.before}</span>
+        <input class="fill-input" id="${id}_fill${i}" type="text" placeholder="${item.hint||'...'}" autocomplete="off">
+        <span>${item.after}</span>`;
+      container.appendChild(div);
+    });
+  });
+}
+
+function submitFill(id) {
+  const data = fillQuizzes[id];
+  const scoreEl = document.getElementById(id + '-score');
+  let correct = 0;
+  data.items.forEach((item, i) => {
+    const input = document.getElementById(id + '_fill' + i);
+    if (!input) return;
+    const val = input.value.trim().toLowerCase();
+    const ans = item.ans.toLowerCase();
+    if (val === ans) { input.classList.add('fill-correct'); correct++; }
+    else { input.classList.add('fill-wrong'); input.placeholder = item.ans; }
+    input.disabled = true;
+  });
+  scoreEl.style.display = 'block';
+  scoreEl.textContent = `Score: ${correct} / ${data.items.length} (${Math.round(correct/data.items.length*100)}%)`;
+  const wrap = document.getElementById(id + '-items').closest('.fill-quiz');
+  if (wrap) wrap.querySelector('.quiz-submit').disabled = true;
+  updateProgress();
+}
+
+// ══════════════════════════════════════
+// RENDER MARK-CORRECT QUIZZES
+// ══════════════════════════════════════
+function renderMarkQuizzes() {
+  Object.keys(markQuizzes).forEach(id => {
+    const data = markQuizzes[id];
+    const container = document.getElementById(id + '-items');
+    if (!container) return;
+    data.items.forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'mark-item';
+      div.innerHTML = `
+        <div style="flex:1">
+          <p>${i+1}. ${item.s}</p>
+          <div class="mark-reveal" id="${id}_rev${i}"></div>
+        </div>
+        <div class="mark-btn-wrap">
+          <button class="mark-btn" onclick="selectMark('${id}',${i},'correct')">✓ Correct</button>
+          <button class="mark-btn" onclick="selectMark('${id}',${i},'wrong')">✗ Incorrect</button>
+        </div>`;
+      container.appendChild(div);
+    });
+  });
+}
+
+const markSelections = {};
+function selectMark(id, i, choice) {
+  if (!markSelections[id]) markSelections[id] = {};
+  markSelections[id][i] = choice;
+  const btns = document.querySelectorAll(`#${id}-items .mark-item:nth-child(${i+1}) .mark-btn`);
+  btns.forEach(b => { b.classList.remove('selected-correct','selected-wrong'); });
+  btns[choice==='correct'?0:1].classList.add(choice==='correct'?'selected-correct':'selected-wrong');
+}
+
+function submitMark(id) {
+  const data = markQuizzes[id];
+  const sel = markSelections[id] || {};
+  let correct = 0;
+  data.items.forEach((item, i) => {
+    const revEl = document.getElementById(`${id}_rev${i}`);
+    const chosen = sel[i];
+    const isCorrect = (chosen === 'correct') === item.correct;
+    if (isCorrect) correct++;
+    revEl.style.display = 'block';
+    if (item.correct) {
+      revEl.className = 'mark-reveal correct-reveal';
+      revEl.textContent = '✓ Correct sentence!';
+    } else {
+      revEl.className = 'mark-reveal wrong-reveal';
+      revEl.textContent = `✗ Incorrect — ${item.fix}`;
+    }
+  });
+  const scoreEl = document.getElementById(id + '-score');
+  scoreEl.style.display = 'block';
+  scoreEl.textContent = `Score: ${correct} / ${data.items.length} (${Math.round(correct/data.items.length*100)}%)`;
+  document.getElementById(id + '-items').closest('.mark-quiz').querySelector('.quiz-submit').disabled = true;
+  updateProgress();
+}
+
+// ══════════════════════════════════════
+// PROGRESS
+// ══════════════════════════════════════
+function updateProgress() {
+  const total = document.querySelectorAll('.quiz-submit').length;
+  const done = document.querySelectorAll('.quiz-submit:disabled').length;
+  const pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+}
+
+// ══════════════════════════════════════
+// SIDEBAR ACTIVE & SCROLL SPY
+// ══════════════════════════════════════
+function initScrollSpy() {
+  const sections = document.querySelectorAll('.lesson');
+  const navItems = document.querySelectorAll('.nav-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navItems.forEach(n => n.classList.remove('active'));
+        const active = document.querySelector(`.nav-item[href="#${id}"]`);
+        if (active) {
+          active.classList.add('active');
+          active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-60px 0px -40% 0px' });
+  sections.forEach(s => observer.observe(s));
+}
+
+// ══════════════════════════════════════
+// HAMBURGER
+// ══════════════════════════════════════
+const hamburger = document.getElementById('hamburger');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+
+hamburger.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('show');
+});
+overlay.addEventListener('click', () => {
+  sidebar.classList.remove('open');
+  overlay.classList.remove('show');
+});
+
+sidebar.querySelectorAll('.nav-item').forEach(a => {
+  a.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+  });
+});
+
+// ══════════════════════════════════════
+// BACK TO TOP
+// ══════════════════════════════════════
+window.addEventListener('scroll', () => {
+  const btt = document.getElementById('btt');
+  btt.classList.toggle('visible', window.scrollY > 400);
+});
+
+// ══════════════════════════════════════
+// INIT
+// ══════════════════════════════════════
+renderQuizzes();
+renderFillQuizzes();
+renderMarkQuizzes();
+initScrollSpy();
+</script>
+</body>
+</html>

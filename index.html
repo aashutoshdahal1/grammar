@@ -791,10 +791,10 @@
 
 <header>
   <div class="logo">📚 English Adventure</div>
-  <div class="mobile-progress" id="mobileProgressPct" onclick="go('catalog')" title="View all 31 lessons" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();go('catalog');}">0%</div>
+  <div class="mobile-progress" id="mobileProgressPct" onclick="go('catalog')" title="View all 39 lessons" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();go('catalog');}">0%</div>
   <div class="progress-wrap">
     <div class="progress-bar-outer"><div class="progress-bar-inner" id="pFill" style="width:0%"></div></div>
-    <div class="progress-label" id="pLabel">0 / 31 lessons</div>
+    <div class="progress-label" id="pLabel">0 / 39 lessons</div>
     <div class="motivation-note">Small daily steps beat long breaks</div>
   </div>
   <div class="stars-box">⭐ <span id="starsCount">0</span></div>
@@ -806,7 +806,7 @@
     <div class="mobile-menu-panel">
       <div class="mobile-menu-logo">📚 English Adventure</div>
       <div class="mobile-menu-meta">
-        <div class="mobile-menu-lessons" id="menuProgressCount">0 / 31 lessons</div>
+        <div class="mobile-menu-lessons" id="menuProgressCount">0 / 39 lessons</div>
         <div class="mobile-menu-note">Small daily steps beat long breaks</div>
         <div class="mobile-menu-stars">⭐ <span id="menuStarsCount">0</span></div>
       </div>
@@ -816,47 +816,49 @@
     </div>
 
     <div class="sidebar-title">📖 All Lessons</div>
-    <button class="nav-btn active" id="nb-home" onclick="go('home')"><span class="icon">🏠</span>Home</button>
+    <button class="nav-btn active" id="nb-home" onclick="go('home')"><span class="icon">🏠</span>Welcome!</button>
     <button class="nav-btn" id="nb-notes" onclick="go('notes')"><span class="icon">📝</span>My Notes</button>
 
-    <div class="cat-label">🟢 Verb Tenses</div>
-    <button class="nav-btn" id="nb-l1" onclick="go('l1')"><span class="icon">1</span>Be Verb (am/is/are)</button>
+    <div class="cat-label">📚 Lesson List</div>
+    <button class="nav-btn" id="nb-l1" onclick="go('l1')"><span class="icon">1</span>Present Simple: Be</button>
     <button class="nav-btn" id="nb-l2" onclick="go('l2')"><span class="icon">2</span>There is / There are</button>
-    <button class="nav-btn" id="nb-l3" onclick="go('l3')"><span class="icon">3</span>Present Simple (+)</button>
-    <button class="nav-btn" id="nb-l4" onclick="go('l4')"><span class="icon">4</span>Present Simple (- / ?)</button>
-    <button class="nav-btn" id="nb-l5" onclick="go('l5')"><span class="icon">5</span>Present Continuous</button>
-    <button class="nav-btn" id="nb-l6" onclick="go('l6')"><span class="icon">6</span>Simple vs Continuous</button>
-    <button class="nav-btn" id="nb-l7" onclick="go('l7')"><span class="icon">7</span>Past Simple</button>
-    <button class="nav-btn" id="nb-l8" onclick="go('l8')"><span class="icon">8</span>Future Tenses</button>
-    <button class="nav-btn" id="nb-l9" onclick="go('l9')"><span class="icon">9</span>Present Perfect</button>
-
-    <div class="cat-label">🔵 Verbs & Structure</div>
-    <button class="nav-btn" id="nb-lA" onclick="go('lA')"><span class="icon">10</span>Yes/No Short Answers</button>
-    <button class="nav-btn" id="nb-lB" onclick="go('lB')"><span class="icon">11</span>Permission & Obligation</button>
-    <button class="nav-btn" id="nb-lC" onclick="go('lC')"><span class="icon">12</span>Perfect vs Past Simple</button>
-    <button class="nav-btn" id="nb-l10" onclick="go('l10')"><span class="icon">13</span>Helping Verbs</button>
-    <button class="nav-btn" id="nb-l11" onclick="go('l11')"><span class="icon">14</span>Modal Verbs</button>
-    <button class="nav-btn" id="nb-l12" onclick="go('l12')"><span class="icon">15</span>Should/Could/Would</button>
-    <button class="nav-btn" id="nb-l13" onclick="go('l13')"><span class="icon">16</span>Verbs + TO or -ING</button>
-    <button class="nav-btn" id="nb-l14" onclick="go('l14')"><span class="icon">17</span>Direct & Indirect Objects</button>
-
-    <div class="cat-label">🟡 Nouns & Articles</div>
-    <button class="nav-btn" id="nb-l15" onclick="go('l15')"><span class="icon">15</span>Countable & Uncountable</button>
-    <button class="nav-btn" id="nb-l16" onclick="go('l16')"><span class="icon">16</span>Forming Plurals</button>
-    <button class="nav-btn" id="nb-l17" onclick="go('l17')"><span class="icon">17</span>This/That/These/Those</button>
-    <button class="nav-btn" id="nb-l18" onclick="go('l18')"><span class="icon">18</span>Articles: A, An, The</button>
-    <button class="nav-btn" id="nb-l19" onclick="go('l19')"><span class="icon">19</span>Possessives</button>
-
-    <div class="cat-label">🔴 Words & Expressions</div>
-    <button class="nav-btn" id="nb-l20" onclick="go('l20')"><span class="icon">20</span>Some, Any, No</button>
-    <button class="nav-btn" id="nb-l21" onclick="go('l21')"><span class="icon">21</span>Prepositions: In/On/At</button>
-    <button class="nav-btn" id="nb-l22" onclick="go('l22')"><span class="icon">22</span>Prepositions: Of/From/To/For</button>
-    <button class="nav-btn" id="nb-l23" onclick="go('l23')"><span class="icon">23</span>Too and Enough</button>
-    <button class="nav-btn" id="nb-l24" onclick="go('l24')"><span class="icon">24</span>Either and Neither</button>
-    <button class="nav-btn" id="nb-l25" onclick="go('l25')"><span class="icon">25</span>Agreeing: So/Neither/Too</button>
-    <button class="nav-btn" id="nb-l26" onclick="go('l26')"><span class="icon">26</span>Comparative Adjectives</button>
-    <button class="nav-btn" id="nb-l27" onclick="go('l27')"><span class="icon">27</span>Superlative Adjectives</button>
-    <button class="nav-btn" id="nb-l28" onclick="go('l28')"><span class="icon">28</span>Adverbs</button>
+    <button class="nav-btn" id="nb-l3" onclick="go('l3')"><span class="icon">3</span>Present Simple: Positive</button>
+    <button class="nav-btn" id="nb-l4" onclick="go('l4')"><span class="icon">4</span>Present Simple: Negative</button>
+    <button class="nav-btn" id="nb-l29" onclick="go('l29')"><span class="icon">5</span>Present Simple: Questions</button>
+    <button class="nav-btn" id="nb-lA" onclick="go('lA')"><span class="icon">6</span>Present Simple: Answering Yes/No Questions</button>
+    <button class="nav-btn" id="nb-l5" onclick="go('l5')"><span class="icon">7</span>Present Continuous: Positive</button>
+    <button class="nav-btn" id="nb-l30" onclick="go('l30')"><span class="icon">8</span>Present Continuous: Negative</button>
+    <button class="nav-btn" id="nb-l31" onclick="go('l31')"><span class="icon">9</span>Present Continuous: Questions</button>
+    <button class="nav-btn" id="nb-l6" onclick="go('l6')"><span class="icon">10</span>Present Simple or Continuous?</button>
+    <button class="nav-btn" id="nb-l7" onclick="go('l7')"><span class="icon">11</span>Past Simple: Be</button>
+    <button class="nav-btn" id="nb-l32" onclick="go('l32')"><span class="icon">12</span>Past Simple: Regular Verbs</button>
+    <button class="nav-btn" id="nb-l33" onclick="go('l33')"><span class="icon">13</span>Past Simple: Irregular Verbs</button>
+    <button class="nav-btn" id="nb-l34" onclick="go('l34')"><span class="icon">14</span>Future with Going To</button>
+    <button class="nav-btn" id="nb-l8" onclick="go('l8')"><span class="icon">15</span>Future with Will / Won't</button>
+    <button class="nav-btn" id="nb-l35" onclick="go('l35')"><span class="icon">16</span>Will or Going to?</button>
+    <button class="nav-btn" id="nb-lB" onclick="go('lB')"><span class="icon">17</span>Permission, Obligation, Prohibition</button>
+    <button class="nav-btn" id="nb-l9" onclick="go('l9')"><span class="icon">18</span>Present Perfect</button>
+    <button class="nav-btn" id="nb-lC" onclick="go('lC')"><span class="icon">19</span>Present Perfect or Past Simple</button>
+    <button class="nav-btn" id="nb-l10" onclick="go('l10')"><span class="icon">20</span>Basic Helping Verbs</button>
+    <button class="nav-btn" id="nb-l11" onclick="go('l11')"><span class="icon">21</span>Modal Helping Verbs</button>
+    <button class="nav-btn" id="nb-l13" onclick="go('l13')"><span class="icon">22</span>Verbs + TO or -ING</button>
+    <button class="nav-btn" id="nb-l14" onclick="go('l14')"><span class="icon">23</span>Direct & Indirect Objects</button>
+    <button class="nav-btn" id="nb-l15" onclick="go('l15')"><span class="icon">24</span>Countable & Uncountable Nouns</button>
+    <button class="nav-btn" id="nb-l16" onclick="go('l16')"><span class="icon">25</span>Forming Plurals of Nouns</button>
+    <button class="nav-btn" id="nb-l17" onclick="go('l17')"><span class="icon">26</span>This, That, These, Those</button>
+    <button class="nav-btn" id="nb-l18" onclick="go('l18')"><span class="icon">27</span>A, An, The</button>
+    <button class="nav-btn" id="nb-l19" onclick="go('l19')"><span class="icon">28</span>Possessives</button>
+    <button class="nav-btn" id="nb-l20" onclick="go('l20')"><span class="icon">29</span>Some, Any, No</button>
+    <button class="nav-btn" id="nb-l21" onclick="go('l21')"><span class="icon">30</span>Prepositions: In, On, At</button>
+    <button class="nav-btn" id="nb-l22" onclick="go('l22')"><span class="icon">31</span>Prepositions: Of, From, To, For</button>
+    <button class="nav-btn" id="nb-l23" onclick="go('l23')"><span class="icon">32</span>Too and Enough</button>
+    <button class="nav-btn" id="nb-l24" onclick="go('l24')"><span class="icon">33</span>Either and Neither</button>
+    <button class="nav-btn" id="nb-l25" onclick="go('l25')"><span class="icon">34</span>Agreeing with So / Neither / Too</button>
+    <button class="nav-btn" id="nb-l12" onclick="go('l12')"><span class="icon">35</span>Should / Could / Would</button>
+    <button class="nav-btn" id="nb-l26" onclick="go('l26')"><span class="icon">36</span>Comparative Adjectives</button>
+    <button class="nav-btn" id="nb-l27" onclick="go('l27')"><span class="icon">37</span>Superlative Adjectives</button>
+    <button class="nav-btn" id="nb-l28" onclick="go('l28')"><span class="icon">38</span>Adverbs</button>
+    <button class="nav-btn" id="nb-l36" onclick="go('l36')"><span class="icon">39</span>Great job! Next steps for learning</button>
   </nav>
 
   <main class="content">
@@ -865,7 +867,7 @@
 </div>
 
 <script>
-const TOTAL = 31;
+const TOTAL = 39;
 let stars = 0, done = new Set(), lessonStars = {}, lessonHistory = {}, focusMode = false;
 let lessonNotes = {};
 let currentLessonId = null;
@@ -1158,13 +1160,13 @@ function upd() {
     pFill.style.width = (done.size/TOTAL*100)+'%';
   }
   if (pLabel) {
-    pLabel.textContent = done.size+' / 31 lessons';
+    pLabel.textContent = done.size+' / 39 lessons';
   }
   if (starsCount) {
     starsCount.textContent = stars;
   }
   if (menuProgressCount) {
-    menuProgressCount.textContent = done.size+' / 31 lessons';
+    menuProgressCount.textContent = done.size+' / 39 lessons';
   }
   if (menuStarsCount) {
     menuStarsCount.textContent = stars;
@@ -1398,7 +1400,15 @@ const LESSON_FLASHCARDS = {
   l25: { title: 'Agreeing with so / neither / too', core: 'These expressions help you agree with someone in a natural way.', hood: 'So am I = me too. Neither do I = me neither.' },
   l26: { title: 'Comparatives', core: 'Comparatives compare two things.', hood: 'Add -er or use more to say one thing is bigger, faster, or better.' },
   l27: { title: 'Superlatives', core: 'Superlatives compare three or more things and pick the top one.', hood: 'Use the biggest, the best, the fastest.' },
-  l28: { title: 'Adverbs', core: 'Adverbs tell how an action happens.', hood: 'They often end in ly and describe verbs, adjectives, or other adverbs.' }
+  l28: { title: 'Adverbs', core: 'Adverbs tell how an action happens.', hood: 'They often end in ly and describe verbs, adjectives, or other adverbs.' },
+  l29: { title: 'Present Simple Questions', core: 'Use do/does for present simple questions and keep the main verb in base form.', hood: 'Do with I/you/we/they; does with he/she/it.' },
+  l30: { title: 'Present Continuous Negative', core: 'Use am/is/are + not + verb-ing for negative actions happening now.', hood: 'Do not forget both be and -ing.' },
+  l31: { title: 'Present Continuous Questions', core: 'Make questions with am/is/are before the subject.', hood: 'Question word + be + subject + verb-ing.' },
+  l32: { title: 'Past Simple Regular Verbs', core: 'Regular verbs form the past with -ed spelling patterns.', hood: 'After did/didn\'t, use the base verb.' },
+  l33: { title: 'Past Simple Irregular Verbs', core: 'Irregular verbs have unique past forms that need memorization.', hood: 'Positive uses irregular form; negative/question uses base verb.' },
+  l34: { title: 'Future with Going To', core: 'Use going to for plans and predictions with evidence.', hood: 'Subject + am/is/are going to + verb.' },
+  l35: { title: 'Will vs Going To', core: 'Will is for decisions/promises; going to is for plans and evidence.', hood: 'Already planned? going to. Decide now? will.' },
+  l36: { title: 'Next Steps', core: 'Review weak areas, build vocabulary, and use grammar in speaking and writing daily.', hood: 'Small daily practice beats long breaks.' }
 };
 
 function flashcardsHtml(lid, qs) {
@@ -1517,37 +1527,45 @@ function homeReviewQueueHtml() {
 }
 
 const LESSON_CATALOG = [
-  ['l1', 'Be Verb (am/is/are)'],
+  ['l1', 'Present Simple: Be'],
   ['l2', 'There is / There are'],
-  ['l3', 'Present Simple (+)'],
-  ['l4', 'Present Simple (- / ?)'],
-  ['l5', 'Present Continuous'],
-  ['l6', 'Simple vs Continuous'],
-  ['l7', 'Past Simple'],
-  ['l8', 'Future Tenses'],
+  ['l3', 'Present Simple: Positive'],
+  ['l4', 'Present Simple: Negative'],
+  ['l29', 'Present Simple: Questions'],
+  ['lA', 'Present Simple: Answering Yes/No Questions'],
+  ['l5', 'Present Continuous: Positive'],
+  ['l30', 'Present Continuous: Negative'],
+  ['l31', 'Present Continuous: Questions'],
+  ['l6', 'Present Simple or Continuous?'],
+  ['l7', 'Past Simple: Be'],
+  ['l32', 'Past Simple: Regular Verbs'],
+  ['l33', 'Past Simple: Irregular Verbs'],
+  ['l34', 'Future with Going To'],
+  ['l8', 'Future with Will / Won\'t'],
+  ['l35', 'Will or Going to?'],
+  ['lB', 'Permission, Obligation, Prohibition'],
   ['l9', 'Present Perfect'],
-  ['lA', 'Yes/No Short Answers'],
-  ['lB', 'Permission & Obligation'],
-  ['lC', 'Perfect vs Past Simple'],
-  ['l10', 'Helping Verbs'],
-  ['l11', 'Modal Verbs'],
-  ['l12', 'Should/Could/Would'],
+  ['lC', 'Present Perfect or Past Simple'],
+  ['l10', 'Basic Helping Verbs'],
+  ['l11', 'Modal Helping Verbs'],
   ['l13', 'Verbs + TO or -ING'],
   ['l14', 'Direct & Indirect Objects'],
-  ['l15', 'Countable & Uncountable'],
-  ['l16', 'Forming Plurals'],
-  ['l17', 'This/That/These/Those'],
-  ['l18', 'Articles A/An/The'],
+  ['l15', 'Countable & Uncountable Nouns'],
+  ['l16', 'Forming Plurals of Nouns'],
+  ['l17', 'This, That, These, Those'],
+  ['l18', 'A, An, The'],
   ['l19', 'Possessives'],
-  ['l20', 'Some/Any/No'],
-  ['l21', 'Prepositions In/On/At'],
-  ['l22', 'Of/From/To/For'],
+  ['l20', 'Some, Any, No'],
+  ['l21', 'Prepositions: In, On, At'],
+  ['l22', 'Prepositions: Of, From, To, For'],
   ['l23', 'Too and Enough'],
   ['l24', 'Either and Neither'],
-  ['l25', 'Agreeing: So/Neither/Too'],
+  ['l25', 'Agreeing with So / Neither / Too'],
+  ['l12', 'Should / Could / Would'],
   ['l26', 'Comparative Adjectives'],
   ['l27', 'Superlative Adjectives'],
-  ['l28', 'Adverbs']
+  ['l28', 'Adverbs'],
+  ['l36', 'Great job! Next steps for learning']
 ];
 
 const LESSONS = {
@@ -1555,13 +1573,13 @@ const LESSONS = {
 home: (m)=>{ m.innerHTML=`<div class="card"><div class="welcome">
   <span class="float">🌟</span>
   <h1>Welcome to English Grammar Adventure!</h1>
-  <p>Learn ALL the grammar from the Espresso English book — 31 lessons with quizzes, examples, and tips. Even a beginner can do this!</p>
-  <div class="chips"><div class="chip">📖 31 Lessons</div><div class="chip">🎯 Quizzes</div><div class="chip">⭐ Earn Stars</div><div class="chip">💡 Memory Tips</div><div class="chip">🌍 Real Examples</div></div>
+  <p>Learn ALL the grammar from the Espresso English book — 39 lessons with quizzes, examples, and tips. Even a beginner can do this!</p>
+  <div class="chips"><div class="chip">📖 39 Lessons</div><div class="chip">🎯 Quizzes</div><div class="chip">⭐ Earn Stars</div><div class="chip">💡 Memory Tips</div><div class="chip">🌍 Real Examples</div></div>
   <button class="btn btn-blue" onclick="go('catalog')" style="font-size:1rem;padding:14px 32px;margin-top:16px;"> Start Lesson</button>
 </div></div>`; },
 
 catalog: (m)=>{ m.innerHTML=`<div class="card"><div class="welcome" style="text-align:left;max-width:700px;margin:0 auto;">
-  <div style="font-family:'Fredoka One',cursive;color:#1A237E;font-size:1.2rem;margin-bottom:14px;text-align:center;">📋 All 31 Lessons:</div>
+  <div style="font-family:'Fredoka One',cursive;color:#1A237E;font-size:1.2rem;margin-bottom:14px;text-align:center;">📋 All 39 Lessons:</div>
   <div class="lesson-grid" style="grid-template-columns:1fr;max-width:100%;">
     ${LESSON_CATALOG.map(([id,t],i)=>`<div class="lgrid-item ${done.has(id) ? 'done' : ''}" onclick="go('${id}')"><span style="color:#1A237E;font-weight:900;font-size:0.85rem;min-width:24px;display:inline-block;">${i+1}.</span>${t}${done.has(id) ? '<span class="done-tick">✓</span>' : ''}</div>`).join('')}
   </div>
@@ -2085,10 +2103,115 @@ l28:(m)=>{
   <tr><td>hard</td><td class="kw">hard</td><td>same form! (hardly = almost not)</td></tr></table></div>
   <div class="box box-green"><h3>📍 Where do adverbs go?</h3>
   <ul class="examples"><li>Usually AFTER the main verb: "She speaks <strong>quietly</strong>."</li><li>Can go BEFORE the verb: "I <strong>quietly</strong> shut the door."</li><li>BEFORE the adjective they describe: "That mansion is <strong>ridiculously</strong> expensive."</li></ul></div>
-  <div class="box box-yellow"><h3>🏆 Congratulations! You've completed all 31 lessons! 🎉</h3><p style="font-weight:700;color:#555;line-height:1.7">You now know all the essential English grammar from the Espresso English book! Keep practicing, review any lesson at any time, and use what you've learned in real conversations. You can do it! 💪</p></div>`,
-  'q28','l28',[{q:"George gives _____ of his time to help children. (generous)",o:["generous","generously","generousely","generouslier"],a:1},{q:"Helen wears very _____ clothes. (stylish)",o:["stylish","stylishly","stylishely","stylishier"],a:0},{q:"I got a _____ score of 100%. (perfect)",o:["perfectly","perfect","perfection","perfectley"],a:1},{q:"My husband learned to cook really _____ after a culinary course. (good)",o:["good","goodly","well","welly"],a:2},{q:"The music is too _____; I can't hear you. (loud)",o:["loud","loudly","loudily","loudlier"],a:0},{q:"Wanda dances _____. She'll be a professional dancer. (beautiful)",o:["beautiful","beautifully","beautifuly","beautifullier"],a:1},{q:"Please carry that box _____. It's fragile. (careful)",o:["careful","carefuly","carefully","carefullier"],a:2},{q:"That part of the city isn't very _____. (safe)",o:["safely","safe","safeler","safelier"],a:1},{q:"It's a _____ decision. I need to think about it. (hard)",o:["hard","hardly","hardily","hardlier"],a:0},{q:"My grandfather drives _____, but I drive fast. (slow)",o:["slow","slowy","slowly","slowier"],a:2}],'l27',null);
+  <div class="box box-yellow"><h3>🏆 Great progress! You are now in the advanced section.</h3><p style="font-weight:700;color:#555;line-height:1.7">You have finished the original core set and unlocked extra focused lessons that complete the full course coverage.</p></div>`,
+  'q28','l28',[{q:"George gives _____ of his time to help children. (generous)",o:["generous","generously","generousely","generouslier"],a:1},{q:"Helen wears very _____ clothes. (stylish)",o:["stylish","stylishly","stylishely","stylishier"],a:0},{q:"I got a _____ score of 100%. (perfect)",o:["perfectly","perfect","perfection","perfectley"],a:1},{q:"My husband learned to cook really _____ after a culinary course. (good)",o:["good","goodly","well","welly"],a:2},{q:"The music is too _____; I can't hear you. (loud)",o:["loud","loudly","loudily","loudlier"],a:0},{q:"Wanda dances _____. She'll be a professional dancer. (beautiful)",o:["beautiful","beautifully","beautifuly","beautifullier"],a:1},{q:"Please carry that box _____. It's fragile. (careful)",o:["careful","carefuly","carefully","carefullier"],a:2},{q:"That part of the city isn't very _____. (safe)",o:["safely","safe","safeler","safelier"],a:1},{q:"It's a _____ decision. I need to think about it. (hard)",o:["hard","hardly","hardily","hardlier"],a:0},{q:"My grandfather drives _____, but I drive fast. (slow)",o:["slow","slowy","slowly","slowier"],a:2}],'l27','l29');
   const el = document.getElementById('q28');
   mkQuiz([{q:"George gives _____ of his time. (generous)",o:["generous","generously","generousely","generouslier"],a:1},{q:"Helen wears very _____ clothes. (stylish)",o:["stylish","stylishly","stylishely","stylishier"],a:0},{q:"I got a _____ score of 100%. (perfect)",o:["perfectly","perfect","perfection","perfectley"],a:1},{q:"He learned to cook really _____. (good)",o:["good","goodly","well","welly"],a:2},{q:"The music is too _____. (loud)",o:["loud","loudly","loudily","loudlier"],a:0},{q:"Wanda dances _____. (beautiful)",o:["beautiful","beautifully","beautifuly","beautifullier"],a:1},{q:"Please carry that box _____. (careful)",o:["careful","carefuly","carefully","carefullier"],a:2},{q:"That part of the city isn't very _____. (safe)",o:["safely","safe","safeler","safelier"],a:1},{q:"It's a _____ decision. (hard)",o:["hard","hardly","hardily","hardlier"],a:0},{q:"My grandfather drives _____ but I drive fast. (slow)",o:["slow","slowy","slowly","slowier"],a:2}],'q28','l28');
+},
+
+l29:(m)=>{
+  m.innerHTML=lessonWrap(`<h1>❓ Present Simple Questions</h1><p>Do/Does questions with correct word order.</p>`,'linear-gradient(135deg,#33691E,#1B5E20)',
+  `<div class="formula">Do/Does + subject + base verb?</div>
+  <div class="tbl-wrap"><table class="tbl"><tr><th>Subject</th><th>Question Form</th><th>Example</th></tr>
+  <tr><td>I/you/we/they</td><td class="kw">Do + subject + verb</td><td>Do you work on weekends?</td></tr>
+  <tr><td>he/she/it</td><td class="kw">Does + subject + verb</td><td>Does she live nearby?</td></tr></table></div>
+  <div class="err-box"><h4>Common mistakes</h4><span class="wrong">Does she lives here? / Where she works?</span><span class="right">Does she live here. / Where does she work?</span></div>`,
+  'q29','l29',[{q:"_____ your friends play soccer?",o:["Do","Does","Is","Are"],a:0},{q:"_____ she speak French?",o:["Do","Does","Did","Is"],a:1},{q:"Where _____ he work?",o:["do","does","is","are"],a:1},{q:"_____ they have any pets?",o:["Do","Does","Has","Are"],a:0},{q:"What time _____ your class start?",o:["do","does","is","are"],a:1}],
+  'l28','l30');
+  mkQuiz([{q:"_____ your friends play soccer?",o:["Do","Does","Is","Are"],a:0},{q:"_____ she speak French?",o:["Do","Does","Did","Is"],a:1},{q:"Where _____ he work?",o:["do","does","is","are"],a:1},{q:"_____ they have any pets?",o:["Do","Does","Has","Are"],a:0},{q:"What time _____ your class start?",o:["do","does","is","are"],a:1}], 'q29','l29');
+},
+
+l30:(m)=>{
+  m.innerHTML=lessonWrap(`<h1>🚫 Present Continuous Negative</h1><p>How to say something is not happening right now.</p>`,'linear-gradient(135deg,#E65100,#BF360C)',
+  `<div class="formula">am/is/are + not + verb-ing</div>
+  <div class="tbl-wrap"><table class="tbl"><tr><th>Subject</th><th>Negative Form</th><th>Example</th></tr>
+  <tr><td>I</td><td class="kw">I am not</td><td>I'm not watching TV.</td></tr>
+  <tr><td>you/we/they</td><td class="kw">are not / aren't</td><td>They aren't studying now.</td></tr>
+  <tr><td>he/she/it</td><td class="kw">is not / isn't</td><td>She isn't working today.</td></tr></table></div>
+  <div class="err-box"><h4>Common mistakes</h4><span class="wrong">I not working. / He not doing homework.</span><span class="right">I'm not working. / He isn't doing homework.</span></div>`,
+  'q30','l30',[{q:"I _____ feeling well today.",o:["not am","am not","don't","isn't"],a:1},{q:"She _____ a jacket right now.",o:["isn't wearing","doesn't wearing","not wear","isn't wear"],a:0},{q:"They _____ dinner now.",o:["aren't cook","aren't cooking","don't cooking","not are cooking"],a:1},{q:"We _____ TV at the moment.",o:["aren't watching","doesn't watch","isn't watching","not watch"],a:0},{q:"He _____ to music now.",o:["isn't listening","don't listen","is not listen","not listening"],a:0}],
+  'l29','l31');
+  mkQuiz([{q:"I _____ feeling well today.",o:["not am","am not","don't","isn't"],a:1},{q:"She _____ a jacket right now.",o:["isn't wearing","doesn't wearing","not wear","isn't wear"],a:0},{q:"They _____ dinner now.",o:["aren't cook","aren't cooking","don't cooking","not are cooking"],a:1},{q:"We _____ TV at the moment.",o:["aren't watching","doesn't watch","isn't watching","not watch"],a:0},{q:"He _____ to music now.",o:["isn't listening","don't listen","is not listen","not listening"],a:0}], 'q30','l30');
+},
+
+l31:(m)=>{
+  m.innerHTML=lessonWrap(`<h1>❔ Present Continuous Questions</h1><p>Ask what is happening now.</p>`,'linear-gradient(135deg,#6A1B9A,#4A148C)',
+  `<div class="formula">am/is/are + subject + verb-ing?</div>
+  <div class="tbl-wrap"><table class="tbl"><tr><th>Type</th><th>Structure</th><th>Example</th></tr>
+  <tr><td>Yes/No</td><td class="kw">Be + subject + verb-ing?</td><td>Are you reading now?</td></tr>
+  <tr><td>Wh-Question</td><td class="kw">Wh + be + subject + verb-ing?</td><td>What is he doing?</td></tr></table></div>
+  <div class="err-box"><h4>Common mistakes</h4><span class="wrong">Why you are laughing? / What he is doing?</span><span class="right">Why are you laughing? / What is he doing?</span></div>`,
+  'q31','l31',[{q:"_____ you studying now?",o:["Do","Are","Is","Does"],a:1},{q:"What _____ she doing?",o:["are","is","does","do"],a:1},{q:"Why _____ they running?",o:["are","is","do","does"],a:0},{q:"_____ he sleeping right now?",o:["Does","Is","Do","Are"],a:1},{q:"Where _____ you going?",o:["is","are","do","does"],a:1}],
+  'l30','l32');
+  mkQuiz([{q:"_____ you studying now?",o:["Do","Are","Is","Does"],a:1},{q:"What _____ she doing?",o:["are","is","does","do"],a:1},{q:"Why _____ they running?",o:["are","is","do","does"],a:0},{q:"_____ he sleeping right now?",o:["Does","Is","Do","Are"],a:1},{q:"Where _____ you going?",o:["is","are","do","does"],a:1}], 'q31','l31');
+},
+
+l32:(m)=>{
+  m.innerHTML=lessonWrap(`<h1>⏪ Past Simple: Regular Verbs</h1><p>Past with -ed patterns.</p>`,'linear-gradient(135deg,#37474F,#263238)',
+  `<div class="formula">Positive: verb-ed | Negative: didn't + base verb | Question: Did + subject + base verb?</div>
+  <div class="tbl-wrap"><table class="tbl"><tr><th>Pattern</th><th>Rule</th><th>Example</th></tr>
+  <tr><td>Most verbs</td><td>Add -ed</td><td>work -> worked</td></tr>
+  <tr><td>Ends in -e</td><td>Add -d</td><td>live -> lived</td></tr>
+  <tr><td>Consonant + y</td><td>y -> ied</td><td>study -> studied</td></tr>
+  <tr><td>Short vowel + consonant</td><td>Double consonant + ed</td><td>stop -> stopped</td></tr></table></div>
+  <div class="err-box"><h4>Common mistakes</h4><span class="wrong">Did you studied? / She didn't liked it.</span><span class="right">Did you study? / She didn't like it.</span></div>`,
+  'q32','l32',[{q:"Yesterday I _____ my room.",o:["clean","cleaned","cleaning","did cleaned"],a:1},{q:"She _____ to school by bus last year.",o:["traveled","travelled","travel","did travel"],a:0},{q:"We _____ TV last night.",o:["didn't watched","didn't watch","not watched","weren't watch"],a:1},{q:"Did he _____ the report?",o:["finished","finish","finishing","to finish"],a:1},{q:"They _____ hard for the test.",o:["studied","studyed","studing","did study"],a:0}],
+  'l31','l33');
+  mkQuiz([{q:"Yesterday I _____ my room.",o:["clean","cleaned","cleaning","did cleaned"],a:1},{q:"She _____ to school by bus last year.",o:["traveled","travelled","travel","did travel"],a:0},{q:"We _____ TV last night.",o:["didn't watched","didn't watch","not watched","weren't watch"],a:1},{q:"Did he _____ the report?",o:["finished","finish","finishing","to finish"],a:1},{q:"They _____ hard for the test.",o:["studied","studyed","studing","did study"],a:0}], 'q32','l32');
+},
+
+l33:(m)=>{
+  m.innerHTML=lessonWrap(`<h1>⏪ Past Simple: Irregular Verbs</h1><p>Common irregular past forms.</p>`,'linear-gradient(135deg,#4E342E,#3E2723)',
+  `<div class="tbl-wrap"><table class="tbl"><tr><th>Base</th><th>Past</th><th>Negative/Question</th></tr>
+  <tr><td>go</td><td class="kw">went</td><td>didn't go / Did you go?</td></tr>
+  <tr><td>see</td><td class="kw">saw</td><td>didn't see / Did she see?</td></tr>
+  <tr><td>buy</td><td class="kw">bought</td><td>didn't buy / Did they buy?</td></tr>
+  <tr><td>eat</td><td class="kw">ate</td><td>didn't eat / Did he eat?</td></tr>
+  <tr><td>take</td><td class="kw">took</td><td>didn't take / Did we take?</td></tr></table></div>
+  <div class="err-box"><h4>Common mistakes</h4><span class="wrong">I didn't went. / Did you saw it?</span><span class="right">I didn't go. / Did you see it?</span></div>`,
+  'q33','l33',[{q:"Last week we _____ to Pokhara.",o:["go","went","gone","did go"],a:1},{q:"I _____ a new phone yesterday.",o:["buy","bought","buyed","did bought"],a:1},{q:"She didn't _____ him at the party.",o:["saw","see","seen","seeing"],a:1},{q:"Did they _____ lunch already?",o:["ate","eaten","eat","eats"],a:2},{q:"He _____ the wrong bus.",o:["take","took","taken","did took"],a:1}],
+  'l32','l34');
+  mkQuiz([{q:"Last week we _____ to Pokhara.",o:["go","went","gone","did go"],a:1},{q:"I _____ a new phone yesterday.",o:["buy","bought","buyed","did bought"],a:1},{q:"She didn't _____ him at the party.",o:["saw","see","seen","seeing"],a:1},{q:"Did they _____ lunch already?",o:["ate","eaten","eat","eats"],a:2},{q:"He _____ the wrong bus.",o:["take","took","taken","did took"],a:1}], 'q33','l33');
+},
+
+l34:(m)=>{
+  m.innerHTML=lessonWrap(`<h1>🧭 Future with Going To</h1><p>Plans and evidence-based predictions.</p>`,'linear-gradient(135deg,#004D40,#00251A)',
+  `<div class="formula">Subject + am/is/are going to + verb</div>
+  <div class="tbl-wrap"><table class="tbl"><tr><th>Use</th><th>Example</th></tr>
+  <tr><td>Planned action</td><td>I'm going to visit my aunt this weekend.</td></tr>
+  <tr><td>Prediction from evidence</td><td>Look at those clouds. It's going to rain.</td></tr></table></div>
+  <div class="err-box"><h4>Common mistakes</h4><span class="wrong">I going to call you. / She going buy a car.</span><span class="right">I'm going to call you. / She's going to buy a car.</span></div>`,
+  'q34','l34',[{q:"I _____ study tonight. (already planned)",o:["will","am going to","going","am to"],a:1},{q:"They _____ move next month.",o:["is going to","are going to","will to","going"],a:1},{q:"Look at that sky! It _____ rain.",o:["is going to","will to","go to","is go"],a:0},{q:"She _____ not going to drive today.",o:["is","are","do","does"],a:0},{q:"We are going _____ visit grandma.",o:["visit","to visit","visiting","visited"],a:1}],
+  'l33','l35');
+  mkQuiz([{q:"I _____ study tonight. (already planned)",o:["will","am going to","going","am to"],a:1},{q:"They _____ move next month.",o:["is going to","are going to","will to","going"],a:1},{q:"Look at that sky! It _____ rain.",o:["is going to","will to","go to","is go"],a:0},{q:"She _____ not going to drive today.",o:["is","are","do","does"],a:0},{q:"We are going _____ visit grandma.",o:["visit","to visit","visiting","visited"],a:1}], 'q34','l34');
+},
+
+l35:(m)=>{
+  m.innerHTML=lessonWrap(`<h1>🔮 Will vs Going To</h1><p>Choose the right future form.</p>`,'linear-gradient(135deg,#1A237E,#0D47A1)',
+  `<div class="tbl-wrap"><table class="tbl"><tr><th>Form</th><th>Use</th><th>Example</th></tr>
+  <tr><td class="kw">will</td><td>Instant decision, promise, offer</td><td>I'll open the door. / I won't tell anyone.</td></tr>
+  <tr><td class="kw">going to</td><td>Plan already decided, evidence prediction</td><td>We're going to travel in July.</td></tr></table></div>
+  <div class="tip"><div class="icon">💡</div><div><h4>Quick check</h4><p>Planned before now? use going to. Deciding now or promising now? use will.</p></div></div>`,
+  'q35','l35',[{q:'"The phone is ringing." "I _____ get it."',o:["am going to","will","going to","am"],a:1},{q:"We _____ buy tickets tomorrow. (already decided)",o:["will","are going to","will to","going"],a:1},{q:"I promise I _____ help you.",o:["am going to","will","will to","going"],a:1},{q:"They think their team _____ win. (prediction)",o:["will","is going to","both are possible","none"],a:2},{q:"She _____ start a new job next month. (planned)",o:["will","is going to","will to","is go to"],a:1}],
+  'l34','l36');
+  mkQuiz([{q:'"The phone is ringing." "I _____ get it."',o:["am going to","will","going to","am"],a:1},{q:"We _____ buy tickets tomorrow. (already decided)",o:["will","are going to","will to","going"],a:1},{q:"I promise I _____ help you.",o:["am going to","will","will to","going"],a:1},{q:"They think their team _____ win. (prediction)",o:["will","is going to","both are possible","none"],a:2},{q:"She _____ start a new job next month. (planned)",o:["will","is going to","will to","is go to"],a:1}], 'q35','l35');
+},
+
+l36:(m)=>{
+  m.innerHTML=lessonWrap(`<h1>🎓 Next Steps</h1><p>You finished the course. Here is how to keep improving fast.</p>`,'linear-gradient(135deg,#2E7D32,#1B5E20)',
+  `<div class="box box-green"><h3>✅ What to do next</h3>
+  <ul class="examples">
+    <li>Review 2 weak lessons every week using your notes.</li>
+    <li>Write 5 original sentences daily using one target grammar point.</li>
+    <li>Practice speaking: answer one question out loud for each lesson.</li>
+    <li>Keep a mistake log and correct each sentence twice.</li>
+  </ul></div>
+  <div class="box box-blue"><h3>📚 Build beyond grammar</h3>
+  <p style="font-weight:700;line-height:1.9">Focus on vocabulary, listening, and pronunciation while recycling these grammar patterns in real conversation.</p></div>
+  <div class="tip"><div class="icon">💡</div><div><h4>30-day routine</h4><p>15 minutes review + 10 minutes writing + 5 minutes speaking each day. Consistency beats intensity.</p></div></div>`,
+  'q36','l36',[{q:"Best long-term strategy is:",o:["Study once a month for 4 hours","Short daily practice","Only do quizzes","Skip review"],a:1},{q:"If a rule is weak, you should:",o:["Avoid it","Review and use it in sentences","Memorize only definitions","Wait for later"],a:1},{q:"A good weekly target is:",o:["2 weak lessons + practice","No plan","Only new lessons","Random reading"],a:0},{q:"To improve speaking with grammar, you should:",o:["Read silently only","Answer questions out loud","Avoid errors by not speaking","Only watch videos"],a:1},{q:"What helps retention most?",o:["Cramming","Consistent repetition","Skipping mistakes","Doing nothing"],a:1}],
+  'l35',null);
+  mkQuiz([{q:"Best long-term strategy is:",o:["Study once a month for 4 hours","Short daily practice","Only do quizzes","Skip review"],a:1},{q:"If a rule is weak, you should:",o:["Avoid it","Review and use it in sentences","Memorize only definitions","Wait for later"],a:1},{q:"A good weekly target is:",o:["2 weak lessons + practice","No plan","Only new lessons","Random reading"],a:0},{q:"To improve speaking with grammar, you should:",o:["Read silently only","Answer questions out loud","Avoid errors by not speaking","Only watch videos"],a:1},{q:"What helps retention most?",o:["Cramming","Consistent repetition","Skipping mistakes","Doing nothing"],a:1}], 'q36','l36');
 }
 
 };
